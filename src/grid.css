@@ -1,0 +1,82 @@
+:root {
+    --forest-green-light: #003E00;
+    --forest-green-dark: #9AC885;
+    --ocean-blue: #699bc2;
+    --text-light: #333333;
+    --text-dark: #E8F5E8;
+    --bg-light: #FFFFFF;
+    --bg-dark: #0A0A0A;
+    --border-light: #E0E0E0;
+    --border-dark: #2A2A2A;
+    --progress-bg-light: #F0F0F0;
+    --progress-bg-dark: #1A1A1A;
+}
+
+.grid-control {
+    --grid-connector-color: var(--forest-green-light);
+    --grid-node-consumer: var(--forest-green-light);
+    --grid-node-generator: var(--forest-green-dark);
+    --grid-node-main: var(--forest-green-light);
+    --grid-signal-generator: var(--forest-green-dark);
+    --grid-signal-main: var(--ocean-blue);
+    --grid-signal-outline: #ffffff;
+
+    display: block;
+}
+
+.grid-control__svg {
+    fill: none;
+    stroke: var(--grid-connector-color);
+    stroke-width: 4px;
+}
+
+.grid-control__connector {
+    stroke-linecap: butt;
+    stroke-linejoin: bevel;
+}
+
+.grid-control__connector-layer,
+.grid-control__node-layer,
+.grid-control__signal-layer {
+    pointer-events: none;
+}
+
+.grid-control__route {
+    fill: none;
+    stroke: none;
+}
+
+.grid-control__signal-dot {
+    stroke: var(--grid-signal-outline);
+    stroke-width: 2px;
+}
+
+.grid-control__signal-dot--generator {
+    fill: var(--grid-signal-generator);
+}
+
+.grid-control__signal-dot--main {
+    fill: var(--grid-signal-main);
+}
+
+.grid-control__node {
+    stroke: none;
+}
+
+.grid-control__node--consumer {
+    fill: var(--grid-node-consumer);
+}
+
+.grid-control__node--generator {
+    fill: var(--grid-node-generator);
+}
+
+.grid-control__node--main {
+    fill: var(--grid-node-main);
+}
+
+.grid-control__error {
+    fill: #111111;
+    stroke: none;
+    font: 14px/1.5 monospace;
+}

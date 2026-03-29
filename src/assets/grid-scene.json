@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "viewWidth": 300,
+  "viewHeight": 480,
+  "connectorPaths": [
+    {
+      "id": "connector-0",
+      "d": "M 190 120 L 190 60"
+    },
+    {
+      "id": "connector-1",
+      "d": "M 190 120 L 110 120 L 110 240"
+    },
+    {
+      "id": "connector-2",
+      "d": "M 190 120 L 190 160 L 270 160 L 270 140"
+    },
+    {
+      "id": "connector-3",
+      "d": "M 110 240 L 30 240 L 30 180"
+    },
+    {
+      "id": "connector-4",
+      "d": "M 110 240 L 110 320"
+    },
+    {
+      "id": "connector-5",
+      "d": "M 110 320 L 190 320 L 190 300"
+    },
+    {
+      "id": "connector-6",
+      "d": "M 110 320 L 110 420"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "A",
+      "type": "generator",
+      "x": 170,
+      "y": 20
+    },
+    {
+      "id": "D",
+      "type": "consumer",
+      "x": 250,
+      "y": 100
+    },
+    {
+      "id": "B",
+      "type": "consumer",
+      "x": 10,
+      "y": 140
+    },
+    {
+      "id": "C",
+      "type": "generator",
+      "x": 170,
+      "y": 260
+    },
+    {
+      "id": "E",
+      "type": "main",
+      "x": 90,
+      "y": 420
+    }
+  ],
+  "signalSources": [
+    {
+      "nodeId": "A",
+      "sourceType": "generator",
+      "routes": [
+        {
+          "id": "A-0",
+          "endNodeId": "D",
+          "d": "M 190 60 L 190 160 L 270 160 L 270 140"
+        },
+        {
+          "id": "A-1",
+          "endNodeId": "B",
+          "d": "M 190 60 L 190 120 L 110 120 L 110 240 L 30 240 L 30 180"
+        },
+        {
+          "id": "A-2",
+          "endNodeId": "E",
+          "d": "M 190 60 L 190 120 L 110 120 L 110 420"
+        }
+      ]
+    },
+    {
+      "nodeId": "C",
+      "sourceType": "generator",
+      "routes": [
+        {
+          "id": "C-0",
+          "endNodeId": "D",
+          "d": "M 190 300 L 190 320 L 110 320 L 110 120 L 190 120 L 190 160 L 270 160 L 270 140"
+        },
+        {
+          "id": "C-1",
+          "endNodeId": "B",
+          "d": "M 190 300 L 190 320 L 110 320 L 110 240 L 30 240 L 30 180"
+        },
+        {
+          "id": "C-2",
+          "endNodeId": "E",
+          "d": "M 190 300 L 190 320 L 110 320 L 110 420"
+        }
+      ]
+    },
+    {
+      "nodeId": "E",
+      "sourceType": "main",
+      "routes": [
+        {
+          "id": "E-0",
+          "endNodeId": "D",
+          "d": "M 110 420 L 110 120 L 190 120 L 190 160 L 270 160 L 270 140"
+        },
+        {
+          "id": "E-1",
+          "endNodeId": "B",
+          "d": "M 110 420 L 110 240 L 30 240 L 30 180"
+        }
+      ]
+    }
+  ]
+}

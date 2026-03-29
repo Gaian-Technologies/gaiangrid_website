@@ -122,6 +122,20 @@ body.loaded {
     align-items: center;
 }
 
+
+.hero-grid-control {
+    width: min(100%, 30rem);
+    display: block;
+    filter: drop-shadow(var(--shadow));
+    transform: translateX(100px);
+}
+
+
+.hero-copy {
+    display: grid;
+    gap: 1.3rem;
+}
+
 .hero-copy {
     display: grid;
     gap: 1.3rem;

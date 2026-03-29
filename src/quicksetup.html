@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gaian Grid Quick Setup</title>
-    <meta name="description" content="Install the Home Assistant integration first, then request an enrollment token.">
+    <meta name="description" content="Request your enrollment token whenever you are ready, then install and configure the Home Assistant integration.">
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
@@ -23,35 +23,39 @@
     <main class="page-main guide-main">
         <section class="guide container">
             <p class="eyebrow">Quick setup</p>
-            <h1>Install first, enroll second.</h1>
+            <h1>Enroll when ready, then connect Home Assistant.</h1>
             <p class="lede">
-                The supported workflow is simple. Install the integration in Home Assistant, then return here to
-                request your enrollment token.
+                You do not need to install the integration before enrolling. The supported workflow is simple:
+                request your enrollment token whenever convenient, then use it in the Gaian Grid Home Assistant
+                setup flow when you are ready to connect your sensors.
             </p>
 
             <ol class="steps">
                 <li>
-                    Read the gaiangrid_telemetry README and install the integration.
-                    <a href="https://github.com/Gaian-Technologies/ha_telemetry">Open the GitHub repository</a>.
+                    Request your enrollment token through the email verification flow at
+                    <a href="/enroll">/enroll</a>. You can do this before or after installing the integration.
                 </li>
                 <li>
-                    Return to the enrollment portal and complete the email verification
-                    flow at <a href="/enroll">/enroll</a>.
+                    Read the `gaiangrid_telemetry` README and install the integration in Home Assistant.
+                    <a href="https://github.com/Gaian-Technologies/gaiangrid_telemetry">Open the GitHub repository</a>.
                 </li>
                 <li>
-                    In Home Assistant, use the same site URL you enrolled through and
-                    the issued enrollment token.
+                    In Home Assistant, enter the issued enrollment token and select the supported electricity
+                    sensors you want to share.
                 </li>
             </ol>
 
             <div class="guide-callout">
                 <p class="callout-label">Home Assistant inputs</p>
-                <p>The setup flow only needs the site URL and the enrollment token.</p>
+                <p>
+                    The Gaian Grid setup flow uses the fixed `https://gaiangrid.com` Hub URL in code. You only
+                    enter the enrollment token, your supported sensors, and the fallback intervals.
+                </p>
             </div>
 
             <div class="actions">
                 <a class="button-link" href="/enroll">Open enrollment portal</a>
-                <a class="text-link" href="https://github.com/Gaian-Technologies/ha_telemetry">Read the integration README</a>
+                <a class="text-link" href="https://github.com/Gaian-Technologies/gaiangrid_telemetry">Read the integration README</a>
             </div>
         </section>
     </main>

@@ -3,10 +3,10 @@
     --surface: rgba(255, 255, 255, 0.88);
     --surface-strong: #ffffff;
     --ink: #122116;
-    --muted: #0f4a1c;
+    --muted: #005900ff;
     --border: #cfd9cb;
-    --accent: #0f4a1c;
-    --accent-strong: #0f4a1c;
+    --accent: #005900ff;
+    --accent-strong: #005900ff;
     --accent-soft: #dcefe6;
     --shadow: 0 20px 60px rgba(18, 33, 22, 0.08);
 }
@@ -293,7 +293,7 @@ h2 {
 }
 
 .nature-art img {
-    width: min(100%, 35rem);
+    width: min(100%, 40rem);
     display: block;
 }
 

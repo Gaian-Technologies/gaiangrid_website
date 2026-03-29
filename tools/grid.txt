@@ -1,0 +1,19 @@
+[grid]
+        A
+        |
+    +---+   D
+B   |   +---+
+|   |
++---+
+    |   C
+    +---+
+    |
+    |
+    E
+
+[legend]
+A = generator
+B = consumer
+C = generator
+D = consumer
+E = main

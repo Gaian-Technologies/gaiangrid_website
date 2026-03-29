@@ -183,8 +183,18 @@ h2 {
     justify-content: center;
 }
 
+.grid-control__svg {
+    width: 75%;
+    height: auto;
+    fill: none;
+    stroke: var(--grid-connector-color);
+    stroke-width: 4px;
+    display: block;
+}
+
+
 .hero-grid-control {
-    width: min(100%, 30rem);
+    width: min(100%, 34rem);
     display: block;
     filter: drop-shadow(var(--shadow));
     transform: translateX(100px);

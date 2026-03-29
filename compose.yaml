@@ -1,0 +1,13 @@
+services:
+  gaiangrid_website:
+    image: nginx:1.29-alpine
+    ports:
+      - "127.0.0.1:8083:80"
+    volumes:
+      - ./src:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1/ || exit 1"]
+      interval: 10s
+      timeout: 3s
+      retries: 5

@@ -6,6 +6,7 @@
     <title>Gaian Grid</title>
     <meta name="description" content="A voluntary Home Assistant telemetry program for electricity research and grid visibility.">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="grid.css">
 </head>
 <body>
     <header class="site-header">
@@ -40,10 +41,7 @@
     
                 </div>
                 <div class="hero-art" aria-hidden="true">
-                    <div class="grid-scene-shell">
-                        <div class="grid-scene" data-grid-scene></div>
-                        <img class="grid-fallback" src="/assets/grid-constellation.svg" alt="">
-                    </div>
+                    <div id="grid-root" class="hero-grid-control"></div>
                 </div>
             </div>
         </section>
@@ -82,6 +80,10 @@
             document.body.classList.add("loaded");
         });
     </script>
-    <script src="/grid_scene.js" defer></script>
+    <script type="module">
+        import { mountGrid } from "./grid.mjs";
+
+        mountGrid(document.getElementById("grid-root"));
+    </script>
 </body>
 </html>

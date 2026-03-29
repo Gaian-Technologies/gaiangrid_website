@@ -122,20 +122,6 @@ body.loaded {
     align-items: center;
 }
 
-
-.hero-grid-control {
-    width: min(100%, 30rem);
-    display: block;
-    filter: drop-shadow(var(--shadow));
-    transform: translateX(100px);
-}
-
-
-.hero-copy {
-    display: grid;
-    gap: 1.3rem;
-}
-
 .hero-copy {
     display: grid;
     gap: 1.3rem;
@@ -197,33 +183,52 @@ h2 {
     justify-content: center;
 }
 
-.hero-art img {
-    width: min(100%, 30rem);
-    display: block;
-    filter: drop-shadow(var(--shadow));
-}
-
 .hero-grid-control {
     width: min(100%, 30rem);
     display: block;
     filter: drop-shadow(var(--shadow));
+    transform: translateX(100px);
 }
 
 .section {
-    padding: 0 0 4rem;
+    padding: 0 0 4.75rem;
 }
 
-.cards {
+.content-stack {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.75rem;
+}
+
+.section-heading {
+    display: grid;
+    gap: 0.9rem;
+    max-width: 50rem;
+}
+
+.section-lede {
+    max-width: 44rem;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+.narrow-heading {
+    max-width: 42rem;
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.25rem;
 }
 
-.card,
-.guide-callout {
-    padding: 1.35rem;
-    border: 1px solid var(--border);
-    border-radius: 1.35rem;
+.story-card,
+.participant-card,
+.path-card,
+.note-panel {
+    padding: 1.45rem;
+    border: 1px solid rgba(207, 217, 203, 0.92);
+    border-radius: 1.45rem;
     background: var(--surface);
     box-shadow: var(--shadow);
 }
@@ -235,14 +240,109 @@ h2 {
     letter-spacing: 0.14em;
     font-size: 0.78rem;
     font-weight: 700;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.85rem;
 }
 
-.card p,
+.story-card h3,
+.path-card h3 {
+    font-size: 1.45rem;
+    line-height: 1.1;
+    margin-bottom: 0.95rem;
+}
+
+.story-card p,
+.participant-card p,
+.path-card p,
+.note-panel p,
 .guide-callout p,
 .steps li {
     color: var(--muted);
     line-height: 1.7;
+}
+
+.section-nature {
+    padding-top: 0.5rem;
+}
+
+.nature-grid {
+    display: grid;
+    grid-template-columns: minmax(18rem, 0.85fr) minmax(0, 1.15fr);
+    gap: 2rem;
+    align-items: center;
+}
+
+.nature-art {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    border-radius: 2rem;
+    background:
+        radial-gradient(circle at top left, rgba(255, 214, 0, 0.16) 0, transparent 12rem),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(220, 239, 230, 0.82) 100%);
+    border: 1px solid rgba(207, 217, 203, 0.92);
+    box-shadow: var(--shadow);
+}
+
+.nature-art img {
+    width: min(100%, 25rem);
+    display: block;
+}
+
+.nature-copy {
+    display: grid;
+    gap: 1rem;
+}
+
+.nature-copy p {
+    color: var(--muted);
+    line-height: 1.75;
+}
+
+.participant-grid,
+.path-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.path-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.participant-card,
+.path-card {
+    background: rgba(255, 255, 255, 0.92);
+}
+
+.platform-band {
+    padding: 2rem;
+    border-radius: 2rem;
+    background:
+        radial-gradient(circle at top left, rgba(15, 74, 28, 0.15) 0, transparent 18rem),
+        linear-gradient(135deg, rgba(220, 239, 230, 0.92) 0%, rgba(255, 255, 255, 0.95) 100%);
+    border: 1px solid rgba(207, 217, 203, 0.92);
+    box-shadow: var(--shadow);
+}
+
+.platform-band h2 {
+    max-width: 24ch;
+    margin-bottom: 1rem;
+}
+
+.platform-band p:last-child {
+    max-width: 48rem;
+    color: var(--muted);
+    line-height: 1.75;
+}
+
+.strong-link {
+    font-weight: 700;
+}
+
+.note-panel {
+    max-width: 58rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(220, 239, 230, 0.72) 100%);
 }
 
 .guide-main {
@@ -284,12 +384,19 @@ h2 {
 
 @media (max-width: 860px) {
     .hero-grid,
-    .cards {
+    .story-grid,
+    .nature-grid,
+    .participant-grid,
+    .path-grid {
         grid-template-columns: 1fr;
     }
 
     h1 {
         max-width: 12ch;
+    }
+
+    .hero-grid-control {
+        transform: translateX(0);
     }
 }
 

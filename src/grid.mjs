@@ -8,9 +8,17 @@ const SIGNAL_TRAVEL_MIN_MS = 3000;
 const SIGNAL_TRAVEL_MAX_MS = 3100;
 const MAX_ACTIVE_SIGNALS = 3;
 
-const HOME_ASSISTANT_ICON = Object.freeze({
-    viewBoxSize: 240,
-    layers: Object.freeze([
+const ICON_TARGET_HEIGHT = 35;
+
+const HOME_ASSISTANT_ICON = fitRawIcon({
+    artBox: {
+        x: 0,
+        y: 0,
+        width: 240,
+        height: 240,
+    },
+    height: ICON_TARGET_HEIGHT,
+    layers: [
         Object.freeze({
             d: "M240 224.762C240 233.012 233.25 239.762 225 239.762H15C6.75 239.762 0 233.012 0 224.762V134.762C0 126.512 4.77 114.993 10.61 109.153L109.39 10.3725C115.22 4.5425 124.77 4.5425 130.6 10.3725L229.39 109.162C235.22 114.992 240 126.522 240 134.772V224.772V224.762Z",
             fill: "#F2F4F9",
@@ -18,16 +26,22 @@ const HOME_ASSISTANT_ICON = Object.freeze({
         Object.freeze({
             d: "M229.39 109.153L130.61 10.3725C124.78 4.5425 115.23 4.5425 109.4 10.3725L10.61 109.153C4.78 114.983 0 126.512 0 134.762V224.762C0 233.012 6.75 239.762 15 239.762H107.27L66.64 199.132C64.55 199.852 62.32 200.262 60 200.262C48.7 200.262 39.5 191.062 39.5 179.762C39.5 168.462 48.7 159.262 60 159.262C71.3 159.262 80.5 168.462 80.5 179.762C80.5 182.092 80.09 184.322 79.37 186.412L111 218.042V102.162C104.2 98.8225 99.5 91.8425 99.5 83.7725C99.5 72.4725 108.7 63.2725 120 63.2725C131.3 63.2725 140.5 72.4725 140.5 83.7725C140.5 91.8425 135.8 98.8225 129 102.162V183.432L160.46 151.972C159.84 150.012 159.5 147.932 159.5 145.772C159.5 134.472 168.7 125.272 180 125.272C191.3 125.272 200.5 134.472 200.5 145.772C200.5 157.072 191.3 166.272 180 166.272C177.5 166.272 175.12 165.802 172.91 164.982L129 208.892V239.772H225C233.25 239.772 240 233.022 240 224.772V134.772C240 126.522 235.23 115.002 229.39 109.162V109.153Z",
         }),
-    ]),
+    ],
 });
 
-const POWER_ICON = Object.freeze({
-    viewBoxSize: 24,
-    layers: Object.freeze([
+const POWER_ICON = fitRawIcon({
+    artBox: {
+        x: 4.1,
+        y: 2,
+        width: 15.79,
+        height: 20,
+    },
+    height: ICON_TARGET_HEIGHT,
+    layers: [
         Object.freeze({
             d: "M8.28,5.45L6.5,4.55L7.76,2H16.23L17.5,4.55L15.72,5.44L15,4H9L8.28,5.45M18.62,8H14.09L13.3,5H10.7L9.91,8H5.38L4.1,10.55L5.89,11.44L6.62,10H17.38L18.1,11.45L19.89,10.56L18.62,8M17.77,22H15.7L15.46,21.1L12,15.9L8.53,21.1L8.3,22H6.23L9.12,11H11.19L10.83,12.35L12,14.1L13.16,12.35L12.81,11H14.88L17.77,22M11.4,15L10.5,13.65L9.32,18.13L11.4,15M14.68,18.12L13.5,13.64L12.6,15L14.68,18.12Z",
         }),
-    ]),
+    ],
 });
 
 const NODE_TYPE_CONFIG = Object.freeze({
@@ -166,7 +180,7 @@ function createNodeElement(node) {
     const typeConfig = getNodeTypeConfig(node.type);
     const group = createSvgElement("g", {
         class: `grid-control__node ${typeConfig.className}`,
-        transform: buildNodeTransform(node.x, node.y, typeConfig.icon.viewBoxSize),
+        transform: buildNodeTranslate(node.x, node.y, typeConfig.icon),
         "data-node-id": node.id,
     });
 
@@ -324,9 +338,33 @@ function createSvgElement(tagName, attributes = {}) {
     return element;
 }
 
-function buildNodeTransform(x, y, viewBoxSize) {
-    const scale = NODE_SIZE / viewBoxSize;
-    return `translate(${x} ${y}) scale(${scale})`;
+function buildNodeTranslate(x, y, icon) {
+    const offsetX = x + (NODE_SIZE - icon.width) / 2;
+    const offsetY = y + (NODE_SIZE - icon.height) / 2;
+
+    return `translate(${offsetX} ${offsetY})`;
+}
+
+function createIcon({ width, height, layers }) {
+    return Object.freeze({
+        width,
+        height,
+        layers: Object.freeze(layers.map((layer) => Object.freeze(layer))),
+    });
+}
+
+function fitRawIcon({ artBox, height, layers }) {
+    const scale = height / artBox.height;
+    const transform = `scale(${scale}) translate(${-artBox.x} ${-artBox.y})`;
+
+    return createIcon({
+        width: artBox.width * scale,
+        height,
+        layers: layers.map((layer) => ({
+            ...layer,
+            transform: layer.transform ? `${transform} ${layer.transform}` : transform,
+        })),
+    });
 }
 
 function buildErrorMessage(error) {

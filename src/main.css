@@ -3,10 +3,10 @@
     --surface: rgba(255, 255, 255, 0.88);
     --surface-strong: #ffffff;
     --ink: #122116;
-    --muted: #4a5b4d;
+    --muted: #0f4a1c;
     --border: #cfd9cb;
-    --accent: #1a6a55;
-    --accent-strong: #0f4a3a;
+    --accent: #0f4a1c;
+    --accent-strong: #0f4a1c;
     --accent-soft: #dcefe6;
     --shadow: 0 20px 60px rgba(18, 33, 22, 0.08);
 }

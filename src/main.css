@@ -287,9 +287,7 @@ h2 {
     justify-content: center;
     padding: 1.5rem;
     border-radius: 2rem;
-    background:
-        radial-gradient(circle at top left, rgba(255, 214, 0, 0.16) 0, transparent 12rem),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(220, 239, 230, 0.82) 100%);
+    background: #005900ff;
     border: 1px solid rgba(207, 217, 203, 0.92);
     box-shadow: var(--shadow);
 }

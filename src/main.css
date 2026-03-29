@@ -382,6 +382,13 @@ h2 {
     font-size: 0.94rem;
 }
 
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
 @media (max-width: 860px) {
     .hero-grid,
     .story-grid,

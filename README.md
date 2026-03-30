@@ -39,6 +39,12 @@ The standalone preview serves:
 
 - `/`
 - `/quicksetup`
+- `/live`
+
+If you also run
+[`gaiangrid_public_analytics`](/ssd2/Gaian/Workspace/gaiangrid_public_analytics),
+the local `/live` page calls `http://127.0.0.1:8200/api/public/live` directly,
+so the two local previews can be run side by side.
 
 It does not serve the enrollment flow locally. In the integrated host shape,
 `/enroll` and `/enroll/verify` are still provided by
@@ -70,8 +76,20 @@ That keeps the public route contract unchanged:
 
 - `/`
 - `/quicksetup`
+- `/live`
 - `/enroll`
 - `/enroll/verify`
 - `/api/v1/enrollment`
 
 Only the static site content changes.
+
+When the project-specific public analytics service is enabled, use the project
+host config in:
+
+- [`deploy/gaiangrid.com.conf`](/ssd2/Gaian/Workspace/gaiangrid_website/deploy/gaiangrid.com.conf)
+
+That config adds:
+
+- `/api/public/` -> `127.0.0.1:8200`
+
+while keeping the existing public Hub, enrollment, and MQTT shape unchanged.

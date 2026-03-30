@@ -370,6 +370,214 @@ h2 {
     padding-left: 1.15rem;
 }
 
+.live-hero {
+    padding: 4rem 0 2rem;
+}
+
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.kpi-card,
+.map-card,
+.detail-card {
+    padding: 1.45rem;
+    border: 1px solid rgba(207, 217, 203, 0.92);
+    border-radius: 1.45rem;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+}
+
+.kpi-card h2 {
+    margin-bottom: 0;
+}
+
+.live-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(19rem, 0.75fr);
+    gap: 1.25rem;
+    align-items: start;
+}
+
+.map-card {
+    display: grid;
+    gap: 1rem;
+}
+
+.map-card-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: end;
+}
+
+.map-hint {
+    max-width: 26ch;
+    color: var(--muted);
+    line-height: 1.6;
+    text-align: right;
+}
+
+.map-stage {
+    position: relative;
+    min-height: 34rem;
+    border-radius: 1.25rem;
+    background:
+        radial-gradient(circle at top left, rgba(0, 89, 0, 0.08) 0, transparent 18rem),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(220, 239, 230, 0.62) 100%);
+    border: 1px solid rgba(207, 217, 203, 0.9);
+    overflow: hidden;
+}
+
+.live-map {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.map-country {
+    fill: rgba(255, 255, 255, 0.66);
+    stroke: rgba(18, 33, 22, 0.18);
+    stroke-width: 0.7;
+    transition: fill 0.2s ease, stroke 0.2s ease, opacity 0.2s ease;
+}
+
+.map-country.is-active {
+    cursor: pointer;
+}
+
+.map-country:hover,
+.map-country.is-selected {
+    stroke: rgba(18, 33, 22, 0.48);
+    stroke-width: 1.2;
+}
+
+.map-tooltip {
+    position: fixed;
+    z-index: 300;
+    display: grid;
+    gap: 0.15rem;
+    min-width: 9rem;
+    padding: 0.7rem 0.8rem;
+    border-radius: 0.9rem;
+    background: rgba(18, 33, 22, 0.94);
+    color: #fff;
+    box-shadow: 0 12px 24px rgba(18, 33, 22, 0.22);
+    pointer-events: none;
+    font-size: 0.92rem;
+}
+
+.map-tooltip strong {
+    font-size: 0.95rem;
+}
+
+.detail-card {
+    display: grid;
+    gap: 1rem;
+    position: sticky;
+    top: 6.7rem;
+}
+
+.detail-lede,
+.region-header p,
+.method-grid p,
+.empty-state {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.detail-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+}
+
+.detail-stat,
+.region-card {
+    padding: 1rem;
+    border: 1px solid rgba(207, 217, 203, 0.82);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.detail-stat span,
+.region-card-grid span {
+    display: block;
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.detail-stat strong,
+.region-card-grid strong {
+    display: block;
+    margin-top: 0.2rem;
+    font-size: 1.05rem;
+}
+
+.region-block {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.region-header {
+    display: grid;
+    gap: 0.3rem;
+}
+
+.region-list {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.region-card {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.region-card-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: baseline;
+}
+
+.region-card-head h4 {
+    font-size: 1.02rem;
+}
+
+.region-card-head span {
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.region-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+}
+
+.method-band {
+    padding: 1.8rem;
+    border-radius: 1.8rem;
+    border: 1px solid rgba(207, 217, 203, 0.92);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(220, 239, 230, 0.72) 100%);
+    box-shadow: var(--shadow);
+}
+
+.method-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.method-grid h3 {
+    margin-bottom: 0.55rem;
+    font-size: 1.08rem;
+}
+
 .steps a {
     color: var(--accent-strong);
 }
@@ -402,7 +610,9 @@ h2 {
     .story-grid,
     .nature-grid,
     .participant-grid,
-    .path-grid {
+    .path-grid,
+    .live-layout,
+    .method-grid {
         grid-template-columns: 1fr;
     }
 
@@ -412,6 +622,14 @@ h2 {
 
     .hero-grid-control {
         transform: translateX(0);
+    }
+
+    .kpi-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .detail-card {
+        position: static;
     }
 }
 
@@ -434,6 +652,21 @@ h2 {
 
     .guide {
         padding-top: 3rem;
+    }
+
+    .kpi-grid,
+    .detail-stats,
+    .region-card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .map-card-header,
+    .region-card-head {
+        display: grid;
+    }
+
+    .map-hint {
+        text-align: left;
     }
 }
 

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaian Grid Live Data</title>
+    <meta name="description" content="Live public Gaian Grid analytics across connected countries, sites, and regional electricity metrics.">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container topbar">
+            <a class="brand" href="/" aria-label="Gaian Grid home">
+                <img src="/assets/gaian_grid.svg" alt="Gaian Grid">
+            </a>
+            <nav class="nav">
+                <a class="nav-link active" href="/live">Live Data</a>
+                <a class="nav-link" href="/quicksetup">Quick Setup</a>
+                <a class="button-link" href="/enroll">Enroll</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-main">
+        <section class="live-hero">
+            <div class="container content-stack">
+                <div class="section-heading">
+                    <p class="eyebrow">Open data view</p>
+                    <h1>Live community electricity signals.</h1>
+                    <p class="section-lede">
+                        This page shows live public rollups from connected Gaian Grid
+                        Home Assistant sites. It focuses on active data-connected
+                        sites, aggregate real power, and region-level voltage and
+                        frequency where location can be resolved.
+                    </p>
+                </div>
+
+                <div class="kpi-grid" id="summary-cards">
+                    <article class="kpi-card">
+                        <p class="card-label">Connected sites</p>
+                        <h2 id="kpi-sites">-</h2>
+                    </article>
+                    <article class="kpi-card">
+                        <p class="card-label">Countries</p>
+                        <h2 id="kpi-countries">-</h2>
+                    </article>
+                    <article class="kpi-card">
+                        <p class="card-label">Live import</p>
+                        <h2 id="kpi-import">-</h2>
+                    </article>
+                    <article class="kpi-card">
+                        <p class="card-label">Live export</p>
+                        <h2 id="kpi-export">-</h2>
+                    </article>
+                    <article class="kpi-card">
+                        <p class="card-label">Average voltage</p>
+                        <h2 id="kpi-voltage">-</h2>
+                    </article>
+                    <article class="kpi-card">
+                        <p class="card-label">Average frequency</p>
+                        <h2 id="kpi-frequency">-</h2>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container live-layout">
+                <article class="map-card">
+                    <div class="map-card-header">
+                        <div>
+                            <p class="card-label">World view</p>
+                            <h2>Connected countries</h2>
+                        </div>
+                        <p class="map-hint">
+                            Hover or click a country to inspect its live public rollup.
+                        </p>
+                    </div>
+                    <div class="map-stage">
+                        <svg id="live-map" class="live-map" viewBox="0 0 1000 540" aria-label="World map of connected Gaian Grid countries"></svg>
+                        <div id="map-tooltip" class="map-tooltip" hidden></div>
+                    </div>
+                </article>
+
+                <aside class="detail-card" id="country-detail">
+                    <p class="card-label">Country detail</p>
+                    <h2 id="detail-title">Loading live data...</h2>
+                    <p class="detail-lede" id="detail-summary">
+                        The country detail panel will update once the public
+                        analytics payload loads.
+                    </p>
+                    <div class="detail-stats" id="detail-stats"></div>
+                    <div class="region-block">
+                        <div class="region-header">
+                            <h3>Region summaries</h3>
+                            <p id="detail-region-note">Region resolution is based on available site metadata and supported identifier lookups.</p>
+                        </div>
+                        <div class="region-list" id="region-list"></div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="method-band">
+                    <p class="eyebrow">Method</p>
+                    <h2>What this page currently measures.</h2>
+                    <div class="method-grid">
+                        <div>
+                            <h3>Connected sites only</h3>
+                            <p>
+                                Interest-only enrollments are not counted here.
+                                This page rolls up sites that have actually enrolled
+                                through Home Assistant and are publishing telemetry.
+                            </p>
+                        </div>
+                        <div>
+                            <h3>Live real power</h3>
+                            <p>
+                                Real power uses the current Gaian Grid sign
+                                convention: positive <code>W</code> values count as
+                                import and negative values count as export.
+                            </p>
+                        </div>
+                        <div>
+                            <h3>Region-aware where possible</h3>
+                            <p>
+                                Country is always shown. Region summaries appear when
+                                the site metadata and supported identifier lookup can
+                                resolve a finer location.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-row">
+            <p>&copy; 2026 Gaian Grid.</p>
+            <div class="footer-links">
+                <a class="footer-link" href="mailto:info@gaiangrid.com">info@gaiangrid.com</a>
+                <a class="footer-link" href="/quicksetup">Quick setup</a>
+                <a class="footer-link" href="/">Back to home</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener("load", () => {
+            document.body.classList.add("loaded");
+        });
+    </script>
+    <script type="module" src="/live.js"></script>
+</body>
+</html>

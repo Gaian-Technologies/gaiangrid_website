@@ -79,7 +79,7 @@ function renderMap(dashboard, geoJson) {
         const name = String(properties.NAME || properties.ADMIN || "Unknown").trim();
         const country = countriesByCode.get(isoCode);
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        path.setAttribute("class", country ? "map-country is-active" : "map-country");
+        path.setAttribute("class", country ? "map-country is-active is-selectable" : "map-country is-selectable");
         path.setAttribute("d", geometryToPath(feature.geometry));
         path.setAttribute("data-country-code", isoCode);
         path.setAttribute("data-country-name", name);
@@ -88,20 +88,18 @@ function renderMap(dashboard, geoJson) {
             path.setAttribute("fill", interpolateGreen(intensity));
         }
 
-        if (country) {
-            path.addEventListener("mouseenter", (event) => {
-                showTooltip(event, country, name);
-            });
-            path.addEventListener("mousemove", (event) => {
-                moveTooltip(event);
-            });
-            path.addEventListener("mouseleave", hideTooltip);
-            path.addEventListener("click", () => {
-                renderCountryDetail(country, name);
-                highlightSelection(isoCode);
-                hideTooltip();
-            });
-        }
+        path.addEventListener("mouseenter", (event) => {
+            showTooltip(event, country, name);
+        });
+        path.addEventListener("mousemove", (event) => {
+            moveTooltip(event);
+        });
+        path.addEventListener("mouseleave", hideTooltip);
+        path.addEventListener("click", () => {
+            renderCountryDetail(country, name);
+            highlightSelection(isoCode);
+            hideTooltip();
+        });
         mapSvg.appendChild(path);
     }
 
@@ -115,10 +113,8 @@ function renderMap(dashboard, geoJson) {
     mapStage?.addEventListener("mouseleave", hideTooltip);
     mapStage?.addEventListener("pointerleave", hideTooltip);
 
-    const initialCountry = activeCountries[0] || null;
-    if (initialCountry) {
-        renderCountryDetail(initialCountry, initialCountry.country_name);
-        highlightSelection(initialCountry.country_code);
+    if (activeCountries.length > 0) {
+        renderInitialDetail(activeCountries);
         return;
     }
 
@@ -274,6 +270,18 @@ function renderUnmappedDetail(dashboard) {
     }
     detailStats.innerHTML = "";
     regionList.innerHTML = '<p class="empty-state">No country-level summaries are available yet.</p>';
+}
+
+function renderInitialDetail(activeCountries) {
+    detailTitle.textContent = "Select a country";
+    detailSummary.textContent = "Click any country on the map to inspect its live public rollup. Countries without connected sites will show that no live data is available yet.";
+    detailStats.innerHTML = "";
+    if (activeCountries.length === 1) {
+        detailRegionNote.textContent = `${activeCountries[0].country_name} currently has connected public data.`;
+    } else {
+        detailRegionNote.textContent = `${formatInteger(activeCountries.length)} countries currently have connected public data.`;
+    }
+    regionList.innerHTML = '<p class="empty-state">Select a country to view region summaries.</p>';
 }
 
 function isMappableCountry(country) {

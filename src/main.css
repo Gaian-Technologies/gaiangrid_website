@@ -447,7 +447,7 @@ h2 {
     transition: fill 0.2s ease, stroke 0.2s ease, opacity 0.2s ease;
 }
 
-.map-country.is-active {
+.map-country.is-selectable {
     cursor: pointer;
 }
 

@@ -37,6 +37,10 @@
 
                 <div class="kpi-grid" id="summary-cards">
                     <article class="kpi-card">
+                        <p class="card-label">People enrolled</p>
+                        <h2 id="kpi-enrolled">-</h2>
+                    </article>
+                    <article class="kpi-card">
                         <p class="card-label">Connected sites</p>
                         <h2 id="kpi-sites">-</h2>
                     </article>
@@ -107,11 +111,12 @@
                     <h2>What this page currently measures.</h2>
                     <div class="method-grid">
                         <div>
-                            <h3>Connected sites only</h3>
+                            <h3>Enrolled people and connected sites</h3>
                             <p>
-                                Interest-only enrollments are not counted here.
-                                This page rolls up sites that have actually enrolled
-                                through Home Assistant and are publishing telemetry.
+                                People enrolled counts verified participant emails
+                                from the portal. Connected sites counts Home
+                                Assistant sites that are actually enrolled and
+                                publishing telemetry.
                             </p>
                         </div>
                         <div>

@@ -9,6 +9,7 @@ const MAP_PAD_X = 18;
 const MAP_PAD_Y = 22;
 
 const summaryTargets = {
+    enrolled: document.getElementById("kpi-enrolled"),
     sites: document.getElementById("kpi-sites"),
     countries: document.getElementById("kpi-countries"),
     importWatts: document.getElementById("kpi-import"),
@@ -49,6 +50,7 @@ Promise.all([
 
 function renderSummary(dashboard) {
     const { summary } = dashboard;
+    summaryTargets.enrolled.textContent = formatInteger(summary.enrolled_people);
     summaryTargets.sites.textContent = formatInteger(summary.connected_sites);
     summaryTargets.countries.textContent = formatInteger(summary.countries);
     summaryTargets.importWatts.textContent = formatPower(summary.current_import_watts);

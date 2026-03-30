@@ -107,7 +107,7 @@ function renderCountryDetail(country, fallbackName) {
 
     detailTitle.textContent = country.country_name;
     if (country.connected_sites > 0) {
-        detailSummary.textContent = `${formatInteger(country.enrolled_people)} enrolled ${country.enrolled_people === 1 ? "person is" : "people are"} currently represented in ${country.country_name}, and ${formatInteger(country.connected_sites)} connected site${country.connected_sites === 1 ? "" : "s"} are contributing live public rollups.`;
+        detailSummary.textContent = `${formatInteger(country.enrolled_people)} enrolled ${country.enrolled_people === 1 ? "person is" : "people are"} currently represented in ${country.country_name}, and ${formatInteger(country.connected_sites)} connected site${country.connected_sites === 1 ? "" : "s"} are contributing live aggregated data.`;
     } else {
         detailSummary.textContent = `${formatInteger(country.enrolled_people)} enrolled ${country.enrolled_people === 1 ? "person is" : "people are"} currently represented in ${country.country_name}, but no Home Assistant sites are connected there yet.`;
     }
@@ -261,7 +261,7 @@ function renderUnmappedDetail(dashboard) {
 
 function renderInitialDetail(activeCountries) {
     detailTitle.textContent = "Select a country";
-    detailSummary.textContent = "Click any green country on the map to inspect its enrolled participants and live public rollup. Countries without connected sites will show that no live data is available yet.";
+    detailSummary.textContent = "Click any green country on the map to inspect its enrolled participants and live aggregated data. Countries without connected sites will show that no live data is available yet.";
     detailStats.innerHTML = "";
     if (activeCountries.length === 1) {
         detailRegionNote.textContent = `${activeCountries[0].country_name} currently has enrolled participants in the public rollout.`;

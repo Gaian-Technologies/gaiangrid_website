@@ -79,9 +79,6 @@ function renderMap(dashboard, geoJson) {
         path.setAttribute("d", geometryToPath(feature.geometry));
         path.setAttribute("data-country-code", isoCode);
         path.setAttribute("data-country-name", name);
-        if (country) {
-            path.setAttribute("fill", "#005900");
-        }
 
         path.addEventListener("click", () => {
             renderCountryDetail(country, name);

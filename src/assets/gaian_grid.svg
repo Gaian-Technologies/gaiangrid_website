@@ -54,11 +54,13 @@
        inkscape:label="path2-5-1-2-1"
        inkscape:export-filename="/home/sam/Downloads/gaian.png"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" /><g
-       id="grid-word"
-       style="fill:#165016;fill-opacity:1;stroke:none">
-      <path d="M877 137Q1087 137 1219 213V614H889V780H1419V139Q1182 -29 860 -29Q508 -29 311.5 175.0Q115 379 115.0 745.0Q115 1111 311.5 1315.5Q508 1520 860 1520Q1155 1520 1380 1378V1163Q1154 1354 877 1354Q328 1354 328 745Q328 137 877 137Z" transform="translate(579.04828,560.63428) scale(0.01562500,-0.01562500)" />
-      <path d="M371 946Q486 1147 748 1147Q783 1147 841 1137V948Q781 983 694 983Q533 983 452.0 878.5Q371 774 371 590V0H186V1120H371Z" transform="translate(603.84515,560.63428) scale(0.01562500,-0.01562500)" />
-      <path d="M193 1120H377V0H193ZM193 1556H377V1323H193Z" transform="translate(617.00140,560.63428) scale(0.01562500,-0.01562500)" />
-      <path d="M571 1147Q816 1147 930 950V1556H1114V0H930V168Q815 -29 571 -29Q365 -29 239.0 133.0Q113 295 113.0 559.0Q113 823 239.0 985.0Q365 1147 571 1147ZM616 993Q537 993 476.5 959.5Q416 926 378.5 866.5Q341 807 322.0 729.5Q303 652 303 559Q303 366 382.0 245.5Q461 125 616 125Q695 125 756.0 158.5Q817 192 854.5 251.5Q892 311 911.0 388.5Q930 466 930 559Q930 756 849.0 874.5Q768 993 616 993Z" transform="translate(625.89203,560.63428) scale(0.01562500,-0.01562500)" />
-      </g></g></svg>
+       inkscape:export-ydpi="96" /><text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;font-family:Waree;-inkscape-font-specification:Waree;writing-mode:lr-tb;direction:ltr;fill:#165016;stroke-width:0.527;stroke-dasharray:none"
+       x="579.04828"
+       y="560.63428"
+       id="text12"><tspan
+         sodipodi:role="line"
+         id="tspan12"
+         x="579.04828"
+         y="560.63428">Grid</tspan></text></g></svg>

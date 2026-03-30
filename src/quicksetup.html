@@ -23,20 +23,19 @@
     <main class="page-main guide-main">
         <section class="guide container">
             <p class="eyebrow">Quick setup</p>
-            <h1>Enroll when ready, then connect Home Assistant.</h1>
+            <h1>Enroll whenever, connect Home Assistant when ready.</h1>
             <p class="lede">
-                You do not need to install the integration before enrolling. The supported workflow is simple:
-                request your enrollment token whenever convenient, then use it in the Gaian Grid Home Assistant
-                setup flow when you are ready to connect your sensors.
+                You do not need to install the integration or even have Home Assistant before enrolling. The supported workflow is simple:
+                enroll whenever, then setup the Gaian Grid Home Assistant integration when ready.
             </p>
 
             <ol class="steps">
                 <li>
-                    Request your enrollment token through the email verification flow at
-                    <a href="/enroll">/enroll</a>. You can do this before or after installing the integration.
+                    Enter your email through the email verification flow at
+                    <a href="/enroll">/enroll</a>. 
                 </li>
                 <li>
-                    Read the `gaiangrid_telemetry` README and install the integration in Home Assistant.
+                    If you have Home Assistant and are ready to setup, read the `gaiangrid_telemetry` README and install the integration in Home Assistant.
                     <a href="https://github.com/Gaian-Technologies/gaiangrid_telemetry">Open the GitHub repository</a>.
                 </li>
                 <li>
@@ -48,8 +47,7 @@
             <div class="guide-callout">
                 <p class="callout-label">Home Assistant inputs</p>
                 <p>
-                    The Gaian Grid setup flow uses the fixed `https://gaiangrid.com` Hub URL in code. You only
-                    enter the enrollment token, your supported sensors, and the fallback intervals.
+                   You only enter the enrollment token, your supported sensors, and optionally the fallback intervals.
                 </p>
             </div>
 

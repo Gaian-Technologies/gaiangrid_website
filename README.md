@@ -3,6 +3,10 @@
 This repo is the project-specific website layer for the `gaiangrid.com`
 deployment.
 
+It is not the generic starting point for open-source adopters. If you want the
+reusable default public site for your own deployment, start with
+[`telemetry_website`](/ssd2/Gaian/Workspace/telemetry_website) instead.
+
 It follows the boundary defined in
 [`docs/OPEN_SOURCE_BOUNDARY.md`](/ssd2/Gaian/Workspace/docs/OPEN_SOURCE_BOUNDARY.md):
 

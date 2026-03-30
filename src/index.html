@@ -6,7 +6,7 @@
     <title>Gaian Grid</title>
     <meta name="description" content="A voluntary Home Assistant telemetry program for electricity research and grid visibility.">
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="grid.css">
+    <link rel="stylesheet" href="grid.css?v=20260330a">
 </head>
 <body>
     <header class="site-header">
@@ -241,7 +241,7 @@
         });
     </script>
     <script type="module">
-        import { mountGrid } from "./grid.mjs";
+        import { mountGrid } from "./grid.mjs?v=20260330a";
 
         mountGrid(document.getElementById("grid-root"));
     </script>

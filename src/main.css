@@ -457,25 +457,6 @@ h2 {
     stroke-width: 1.2;
 }
 
-.map-tooltip {
-    position: fixed;
-    z-index: 300;
-    display: grid;
-    gap: 0.15rem;
-    min-width: 9rem;
-    padding: 0.7rem 0.8rem;
-    border-radius: 0.9rem;
-    background: rgba(18, 33, 22, 0.94);
-    color: #fff;
-    box-shadow: 0 12px 24px rgba(18, 33, 22, 0.22);
-    pointer-events: none;
-    font-size: 0.92rem;
-}
-
-.map-tooltip strong {
-    font-size: 0.95rem;
-}
-
 .detail-card {
     display: grid;
     gap: 1rem;

@@ -22,9 +22,7 @@ const detailSummary = document.getElementById("detail-summary");
 const detailStats = document.getElementById("detail-stats");
 const detailRegionNote = document.getElementById("detail-region-note");
 const regionList = document.getElementById("region-list");
-const mapTooltip = document.getElementById("map-tooltip");
 const mapSvg = document.getElementById("live-map");
-const mapStage = document.querySelector(".map-stage");
 
 Promise.all([
     fetch(`${API_BASE}/api/public/live`).then((response) => {
@@ -88,30 +86,12 @@ function renderMap(dashboard, geoJson) {
             path.setAttribute("fill", interpolateGreen(intensity));
         }
 
-        path.addEventListener("mouseenter", (event) => {
-            showTooltip(event, country, name);
-        });
-        path.addEventListener("mousemove", (event) => {
-            moveTooltip(event);
-        });
-        path.addEventListener("mouseleave", hideTooltip);
         path.addEventListener("click", () => {
             renderCountryDetail(country, name);
             highlightSelection(isoCode);
-            hideTooltip();
         });
         mapSvg.appendChild(path);
     }
-
-    mapSvg.addEventListener("mousemove", (event) => {
-        if (event.target === mapSvg) {
-            hideTooltip();
-        }
-    });
-    mapSvg.addEventListener("mouseleave", hideTooltip);
-    mapSvg.addEventListener("pointerleave", hideTooltip);
-    mapStage?.addEventListener("mouseleave", hideTooltip);
-    mapStage?.addEventListener("pointerleave", hideTooltip);
 
     if (activeCountries.length > 0) {
         renderInitialDetail(activeCountries);
@@ -235,26 +215,6 @@ function highlightSelection(countryCode) {
             path.getAttribute("data-country-code") === countryCode,
         );
     }
-}
-
-function showTooltip(event, country, fallbackName) {
-    const heading = country ? country.country_name : fallbackName;
-    const copy = country
-        ? `${country.connected_sites} connected site${country.connected_sites === 1 ? "" : "s"}`
-        : "No connected sites yet";
-    mapTooltip.innerHTML = `<strong>${escapeHtml(heading)}</strong><span>${escapeHtml(copy)}</span>`;
-    mapTooltip.hidden = false;
-    moveTooltip(event);
-}
-
-function moveTooltip(event) {
-    mapTooltip.style.left = `${event.clientX + 14}px`;
-    mapTooltip.style.top = `${event.clientY + 14}px`;
-}
-
-function hideTooltip() {
-    mapTooltip.innerHTML = "";
-    mapTooltip.hidden = true;
 }
 
 function renderUnmappedDetail(dashboard) {

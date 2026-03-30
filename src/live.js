@@ -60,13 +60,9 @@ function renderSummary(dashboard) {
 }
 
 function renderMap(dashboard, geoJson) {
-    const activeCountries = dashboard.countries.filter(isMappableCountry);
+    const involvedCountries = dashboard.countries.filter(isMappableCountry);
     const countriesByCode = new Map(
-        activeCountries.map((country) => [country.country_code, country]),
-    );
-    const maxSites = Math.max(
-        1,
-        ...activeCountries.map((country) => country.connected_sites),
+        involvedCountries.map((country) => [country.country_code, country]),
     );
 
     mapSvg.innerHTML = "";
@@ -79,13 +75,12 @@ function renderMap(dashboard, geoJson) {
         const name = String(properties.NAME || properties.ADMIN || "Unknown").trim();
         const country = countriesByCode.get(isoCode);
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        path.setAttribute("class", country ? "map-country is-active is-selectable" : "map-country is-selectable");
+        path.setAttribute("class", country ? "map-country is-involved is-selectable" : "map-country is-selectable");
         path.setAttribute("d", geometryToPath(feature.geometry));
         path.setAttribute("data-country-code", isoCode);
         path.setAttribute("data-country-name", name);
         if (country) {
-            const intensity = country.connected_sites / maxSites;
-            path.setAttribute("fill", interpolateGreen(intensity));
+            path.setAttribute("fill", "#005900");
         }
 
         path.addEventListener("click", () => {
@@ -95,8 +90,8 @@ function renderMap(dashboard, geoJson) {
         mapSvg.appendChild(path);
     }
 
-    if (activeCountries.length > 0) {
-        renderInitialDetail(activeCountries);
+    if (involvedCountries.length > 0) {
+        renderInitialDetail(involvedCountries);
         return;
     }
 
@@ -106,35 +101,68 @@ function renderMap(dashboard, geoJson) {
 function renderCountryDetail(country, fallbackName) {
     if (!country) {
         detailTitle.textContent = fallbackName;
-        detailSummary.textContent = `No data-connected sites are currently available for ${fallbackName}.`;
+        detailSummary.textContent = `No enrolled people or data-connected sites are currently available for ${fallbackName}.`;
         detailStats.innerHTML = "";
-        detailRegionNote.textContent = "Region summaries will appear once connected sites exist and location resolution succeeds.";
+        detailRegionNote.textContent = "Region summaries will appear once enrolled participants connect sites and location resolution succeeds.";
         regionList.innerHTML = '<p class="empty-state">No region summaries yet.</p>';
         return;
     }
 
     detailTitle.textContent = country.country_name;
-    detailSummary.textContent = `${formatInteger(country.connected_sites)} connected site${country.connected_sites === 1 ? "" : "s"} are currently contributing live public rollups in ${country.country_name}.`;
-    detailStats.innerHTML = `
-        <div class="detail-stat">
-            <span>Live import</span>
-            <strong>${formatPower(country.current_import_watts)}</strong>
-        </div>
-        <div class="detail-stat">
-            <span>Live export</span>
-            <strong>${formatPower(country.current_export_watts)}</strong>
-        </div>
-        <div class="detail-stat">
-            <span>Average voltage</span>
-            <strong>${formatMetric(country.average_voltage_volts, "V")}</strong>
-        </div>
-        <div class="detail-stat">
-            <span>Average frequency</span>
-            <strong>${formatMetric(country.average_frequency_hz, "Hz")}</strong>
-        </div>
-    `;
+    if (country.connected_sites > 0) {
+        detailSummary.textContent = `${formatInteger(country.enrolled_people)} enrolled ${country.enrolled_people === 1 ? "person is" : "people are"} currently represented in ${country.country_name}, and ${formatInteger(country.connected_sites)} connected site${country.connected_sites === 1 ? "" : "s"} are contributing live public rollups.`;
+    } else {
+        detailSummary.textContent = `${formatInteger(country.enrolled_people)} enrolled ${country.enrolled_people === 1 ? "person is" : "people are"} currently represented in ${country.country_name}, but no Home Assistant sites are connected there yet.`;
+    }
 
-    if (country.unresolved_region_sites > 0) {
+    const statCards = [
+        `
+        <div class="detail-stat">
+            <span>People enrolled</span>
+            <strong>${formatInteger(country.enrolled_people)}</strong>
+        </div>
+        `,
+        `
+        <div class="detail-stat">
+            <span>Connected sites</span>
+            <strong>${formatInteger(country.connected_sites)}</strong>
+        </div>
+        `,
+    ];
+
+    if (country.connected_sites > 0) {
+        statCards.push(
+            `
+            <div class="detail-stat">
+                <span>Live import</span>
+                <strong>${formatPower(country.current_import_watts)}</strong>
+            </div>
+            `,
+            `
+            <div class="detail-stat">
+                <span>Live export</span>
+                <strong>${formatPower(country.current_export_watts)}</strong>
+            </div>
+            `,
+            `
+            <div class="detail-stat">
+                <span>Average voltage</span>
+                <strong>${formatMetric(country.average_voltage_volts, "V")}</strong>
+            </div>
+            `,
+            `
+            <div class="detail-stat">
+                <span>Average frequency</span>
+                <strong>${formatMetric(country.average_frequency_hz, "Hz")}</strong>
+            </div>
+            `,
+        );
+    }
+    detailStats.innerHTML = statCards.join("");
+
+    if (country.connected_sites === 0) {
+        detailRegionNote.textContent = "Region summaries will appear once connected sites start publishing live data for this country.";
+    } else if (country.unresolved_region_sites > 0) {
         detailRegionNote.textContent = `${formatInteger(country.unresolved_region_sites)} connected site${country.unresolved_region_sites === 1 ? "" : "s"} could not yet be resolved below country level.`;
     } else {
         detailRegionNote.textContent = "All currently connected sites for this country have a resolved regional summary.";
@@ -236,14 +264,14 @@ function renderUnmappedDetail(dashboard) {
 
 function renderInitialDetail(activeCountries) {
     detailTitle.textContent = "Select a country";
-    detailSummary.textContent = "Click any country on the map to inspect its live public rollup. Countries without connected sites will show that no live data is available yet.";
+    detailSummary.textContent = "Click any green country on the map to inspect its enrolled participants and live public rollup. Countries without connected sites will show that no live data is available yet.";
     detailStats.innerHTML = "";
     if (activeCountries.length === 1) {
-        detailRegionNote.textContent = `${activeCountries[0].country_name} currently has connected public data.`;
+        detailRegionNote.textContent = `${activeCountries[0].country_name} currently has enrolled participants in the public rollout.`;
     } else {
-        detailRegionNote.textContent = `${formatInteger(activeCountries.length)} countries currently have connected public data.`;
+        detailRegionNote.textContent = `${formatInteger(activeCountries.length)} countries currently have enrolled participants in the public rollout.`;
     }
-    regionList.innerHTML = '<p class="empty-state">Select a country to view region summaries.</p>';
+    regionList.innerHTML = '<p class="empty-state">Select a country to view region summaries and rollout detail.</p>';
 }
 
 function isMappableCountry(country) {

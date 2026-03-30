@@ -24,6 +24,7 @@ const detailRegionNote = document.getElementById("detail-region-note");
 const regionList = document.getElementById("region-list");
 const mapTooltip = document.getElementById("map-tooltip");
 const mapSvg = document.getElementById("live-map");
+const mapStage = document.querySelector(".map-stage");
 
 Promise.all([
     fetch(`${API_BASE}/api/public/live`).then((response) => {
@@ -39,7 +40,7 @@ Promise.all([
         return response.json();
     }),
 ]).then(([dashboard, worldGeoJson]) => {
-    renderSummary(dashboard.summary);
+    renderSummary(dashboard);
     renderMap(dashboard, worldGeoJson);
 }).catch((error) => {
     detailTitle.textContent = "Live data unavailable";
@@ -48,7 +49,8 @@ Promise.all([
     regionList.innerHTML = "";
 });
 
-function renderSummary(summary) {
+function renderSummary(dashboard) {
+    const { summary } = dashboard;
     summaryTargets.sites.textContent = formatInteger(summary.connected_sites);
     summaryTargets.countries.textContent = formatInteger(summary.countries);
     summaryTargets.importWatts.textContent = formatPower(summary.current_import_watts);
@@ -58,12 +60,13 @@ function renderSummary(summary) {
 }
 
 function renderMap(dashboard, geoJson) {
+    const activeCountries = dashboard.countries.filter(isMappableCountry);
     const countriesByCode = new Map(
-        dashboard.countries.map((country) => [country.country_code, country]),
+        activeCountries.map((country) => [country.country_code, country]),
     );
     const maxSites = Math.max(
         1,
-        ...dashboard.countries.map((country) => country.connected_sites),
+        ...activeCountries.map((country) => country.connected_sites),
     );
 
     mapSvg.innerHTML = "";
@@ -85,33 +88,47 @@ function renderMap(dashboard, geoJson) {
             path.setAttribute("fill", interpolateGreen(intensity));
         }
 
-        path.addEventListener("mouseenter", (event) => {
-            showTooltip(event, country, name);
-        });
-        path.addEventListener("mousemove", (event) => {
-            moveTooltip(event);
-        });
-        path.addEventListener("mouseleave", () => {
-            hideTooltip();
-        });
-        path.addEventListener("click", () => {
-            renderCountryDetail(country, name);
-            highlightSelection(isoCode);
-        });
+        if (country) {
+            path.addEventListener("mouseenter", (event) => {
+                showTooltip(event, country, name);
+            });
+            path.addEventListener("mousemove", (event) => {
+                moveTooltip(event);
+            });
+            path.addEventListener("mouseleave", hideTooltip);
+            path.addEventListener("click", () => {
+                renderCountryDetail(country, name);
+                highlightSelection(isoCode);
+                hideTooltip();
+            });
+        }
         mapSvg.appendChild(path);
     }
 
-    const initialCountry = dashboard.countries[0] || null;
-    renderCountryDetail(initialCountry, initialCountry ? initialCountry.country_name : "No connected countries yet");
+    mapSvg.addEventListener("mousemove", (event) => {
+        if (event.target === mapSvg) {
+            hideTooltip();
+        }
+    });
+    mapSvg.addEventListener("mouseleave", hideTooltip);
+    mapSvg.addEventListener("pointerleave", hideTooltip);
+    mapStage?.addEventListener("mouseleave", hideTooltip);
+    mapStage?.addEventListener("pointerleave", hideTooltip);
+
+    const initialCountry = activeCountries[0] || null;
     if (initialCountry) {
+        renderCountryDetail(initialCountry, initialCountry.country_name);
         highlightSelection(initialCountry.country_code);
+        return;
     }
+
+    renderUnmappedDetail(dashboard);
 }
 
 function renderCountryDetail(country, fallbackName) {
     if (!country) {
         detailTitle.textContent = fallbackName;
-        detailSummary.textContent = "No data-connected sites are currently available for this country.";
+        detailSummary.textContent = `No data-connected sites are currently available for ${fallbackName}.`;
         detailStats.innerHTML = "";
         detailRegionNote.textContent = "Region summaries will appear once connected sites exist and location resolution succeeds.";
         regionList.innerHTML = '<p class="empty-state">No region summaries yet.</p>';
@@ -240,7 +257,27 @@ function moveTooltip(event) {
 }
 
 function hideTooltip() {
+    mapTooltip.innerHTML = "";
     mapTooltip.hidden = true;
+}
+
+function renderUnmappedDetail(dashboard) {
+    const unresolvedSites = dashboard.summary.unmapped_country_sites || 0;
+
+    detailTitle.textContent = "Location metadata pending";
+    if (unresolvedSites > 0) {
+        detailSummary.textContent = `${formatInteger(unresolvedSites)} connected site${unresolvedSites === 1 ? "" : "s"} are publishing live data but cannot yet be placed on the public country map because country metadata is missing or unresolved.`;
+        detailRegionNote.textContent = "Country and region summaries will appear once connected sites include resolvable location metadata.";
+    } else {
+        detailSummary.textContent = "No data-connected sites are currently available for the public country map.";
+        detailRegionNote.textContent = "Country and region summaries will appear once connected sites exist and location resolution succeeds.";
+    }
+    detailStats.innerHTML = "";
+    regionList.innerHTML = '<p class="empty-state">No country-level summaries are available yet.</p>';
+}
+
+function isMappableCountry(country) {
+    return Boolean(country && country.country_code && country.country_code !== "ZZ");
 }
 
 function formatPower(watts) {

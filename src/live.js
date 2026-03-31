@@ -174,13 +174,13 @@ function renderCountryDetail(country, fallbackName) {
         <article class="region-card">
             <div class="region-card-head">
                 <h4>${escapeHtml(region.region_label)}</h4>
-                <span>${formatInteger(region.connected_sites)} site${region.connected_sites === 1 ? "" : "s"}</span>
+                <span>${formatInteger(region.connected_sites)} connected site${region.connected_sites === 1 ? "" : "s"}</span>
             </div>
             <div class="region-card-grid">
-                <div><span>Import</span><strong>${formatPower(region.current_import_watts)}</strong></div>
-                <div><span>Export</span><strong>${formatPower(region.current_export_watts)}</strong></div>
-                <div><span>Voltage</span><strong>${formatMetric(region.average_voltage_volts, "V")}</strong></div>
-                <div><span>Frequency</span><strong>${formatMetric(region.average_frequency_hz, "Hz")}</strong></div>
+                <div><span>Total import</span><strong>${formatPower(region.current_import_watts)}</strong></div>
+                <div><span>Total export</span><strong>${formatPower(region.current_export_watts)}</strong></div>
+                <div><span>Average voltage</span><strong>${formatMetric(region.average_voltage_volts, "V")}</strong></div>
+                <div><span>Average frequency</span><strong>${formatMetric(region.average_frequency_hz, "Hz")}</strong></div>
             </div>
         </article>
     `).join("");

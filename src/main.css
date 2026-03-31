@@ -69,6 +69,8 @@ body.loaded {
     display: flex;
     align-items: center;
     gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 .nav-link,
@@ -775,7 +777,8 @@ h1.page-title {
 
     .nav {
         width: 100%;
-        justify-content: space-between;
+        justify-content: flex-start;
+        gap: 0.9rem;
     }
 
     .hero {

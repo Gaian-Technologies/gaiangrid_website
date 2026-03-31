@@ -492,13 +492,8 @@ h1.page-title {
 }
 
 .vision-band p {
-    max-width: 52rem;
     color: var(--muted);
     line-height: 1.8;
-}
-
-.vision-band h2 {
-    max-width: 52rem;
 }
 
 .steps {

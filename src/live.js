@@ -98,7 +98,7 @@ function renderMap(dashboard, geoJson) {
 function renderCountryDetail(country, fallbackName) {
     if (!country) {
         detailTitle.textContent = fallbackName;
-        detailSummary.textContent = `No joined participants or data-connected sites are currently available for ${fallbackName}.`;
+        detailSummary.textContent = `No registered participants or data-connected sites are currently available for ${fallbackName}.`;
         detailStats.innerHTML = "";
         detailRegionNote.textContent = "Region summaries will appear once sites are connected and location resolution succeeds.";
         regionList.innerHTML = '<p class="empty-state">No region summaries yet.</p>';
@@ -107,15 +107,15 @@ function renderCountryDetail(country, fallbackName) {
 
     detailTitle.textContent = country.country_name;
     if (country.connected_sites > 0) {
-        detailSummary.textContent = `${formatInteger(country.enrolled_people)} ${country.enrolled_people === 1 ? "person has" : "people have"} joined in ${country.country_name}, and ${formatInteger(country.connected_sites)} connected site${country.connected_sites === 1 ? "" : "s"} are contributing live aggregated data.`;
+        detailSummary.textContent = `${formatInteger(country.enrolled_people)} ${country.enrolled_people === 1 ? "person has" : "people have"} registered interest in ${country.country_name}, and ${formatInteger(country.connected_sites)} connected site${country.connected_sites === 1 ? "" : "s"} are contributing live aggregated data.`;
     } else {
-        detailSummary.textContent = `${formatInteger(country.enrolled_people)} ${country.enrolled_people === 1 ? "person has" : "people have"} joined in ${country.country_name}, but no Home Assistant sites are connected there yet.`;
+        detailSummary.textContent = `${formatInteger(country.enrolled_people)} ${country.enrolled_people === 1 ? "person has" : "people have"} registered interest in ${country.country_name}, but no Home Assistant sites are connected there yet.`;
     }
 
     const statCards = [
         `
         <div class="detail-stat">
-            <span>People joined</span>
+            <span>People registered</span>
             <strong>${formatInteger(country.enrolled_people)}</strong>
         </div>
         `,
@@ -264,9 +264,9 @@ function renderInitialDetail(activeCountries) {
     detailSummary.textContent = "Click any green country on the map to inspect community participation and live aggregated data. Countries without connected sites will show that no live data is available yet.";
     detailStats.innerHTML = "";
     if (activeCountries.length === 1) {
-        detailRegionNote.textContent = `${activeCountries[0].country_name} currently has joined participants in the public view.`;
+        detailRegionNote.textContent = `${activeCountries[0].country_name} currently has registered participants in the public view.`;
     } else {
-        detailRegionNote.textContent = `${formatInteger(activeCountries.length)} countries currently have joined participants in the public view.`;
+        detailRegionNote.textContent = `${formatInteger(activeCountries.length)} countries currently have registered participants in the public view.`;
     }
     regionList.innerHTML = '<p class="empty-state">Select a country to view region summaries and rollout detail.</p>';
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gaian Grid Quick Setup</title>
-    <meta name="description" content="Join free whenever you are ready, then install and configure the Home Assistant integration when you want to connect live data.">
+    <meta name="description" content="Register interest free whenever you are ready, then install and configure the Home Assistant integration when you want to connect live data.">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="main.css?v=20260331b">
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"8bb157c5837e407dbbdbf5048f4bd54e"}'></script>
@@ -19,7 +19,7 @@
                 <a class="nav-link" href="/live">Live Data</a>
                 <a class="nav-link" href="https://github.com/orgs/Gaian-Technologies/repositories" target="_blank" rel="noreferrer">GitHub</a>
                 <a class="nav-link active" href="/quicksetup">Quick Setup</a>
-                <a class="button-link" href="/enroll">Join free</a>
+                <a class="button-link" href="/enroll?mode=interest">Register interest</a>
             </nav>
         </div>
     </header>
@@ -27,24 +27,24 @@
     <main class="page-main guide-main">
         <section class="guide container">
             <p class="eyebrow">Quick setup</p>
-            <h1>Join whenever, connect Home Assistant when ready.</h1>
+            <h1>Connecting Home Assistant.</h1>
             <p class="lede">
-                You do not need to install the integration or even have Home Assistant before joining. The supported workflow is simple:
-                join whenever, then setup the Gaian Grid Home Assistant integration when ready.
+                If you have home assistant all ready and want to setup, the supported workflow is simple:
             </p>
 
             <ol class="steps">
                 <li>
-                    Enter your email through the email verification flow at
-                    <a href="/enroll">/enroll</a>. 
+                    Enter your email through the email verification flow 
+                    <a href="/enroll?mode=interest">here</a>,
+                    and request an enrollment token.
                 </li>
                 <li>
-                    If you have Home Assistant and are ready to setup, read the `gaiangrid_telemetry` README and install the integration in Home Assistant.
+                    Read the `gaiangrid_telemetry` README and install the integration in Home Assistant.
                     <a href="https://github.com/Gaian-Technologies/gaiangrid_telemetry">Open the GitHub repository</a>.
                 </li>
                 <li>
-                    In Home Assistant, enter the issued enrollment token and select the supported electricity
-                    sensors you want to share.
+                    In the Home Assistant integration, enter the issued enrollment token and select the supported electricity
+                    sensors you want to share. All data you share is optional. 
                 </li>
             </ol>
 
@@ -55,8 +55,21 @@
                 </p>
             </div>
 
+            <div class="guide-callout">
+                <p class="callout-label">What the integration does</p>
+                <p>
+                   The Gaian Grid integration shares volunatrily live electricity telemetry and acts as live sesnor point nodes within distribution networks. 
+                   The data is used with retailors and network operators to help stablise the grid with a high penetration of renewable energy which can become unstable, 
+                   and allows for . Currenlty distribution networks lack time series data throughout the networks (few sensors at transformers and energy at the meter)
+                   but time series power, frequency and voltage is often not known along the networks whcih is fine for centralized generation as long as your overall grid is healthy
+                   but in the grid of tjh
+                   for . The data will also be open sourced for research projects and everything
+                </p>
+            </div>
+
             <div class="actions">
-                <a class="button-link" href="/enroll">Open join page</a>
+                <a class="button-link" href="/enroll?mode=token">Get setup token</a>
+                <a class="text-link" href="/enroll?mode=interest">Register interest free</a>
                 <a class="text-link" href="https://github.com/Gaian-Technologies/gaiangrid_telemetry">Read the integration README</a>
             </div>
         </section>

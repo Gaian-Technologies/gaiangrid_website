@@ -30,14 +30,14 @@
             <p class="eyebrow">Quick setup</p>
             <h1>Connecting Home Assistant.</h1>
             <p class="lede">
-                If you have home assistant all ready and want to setup, the supported workflow is simple:
+                If you already have Home Assistant and want to connect data, the supported workflow is simple:
             </p>
 
             <ol class="steps">
                 <li>
-                    Enter your email through the email verification flow 
-                    <a href="/enroll?mode=interest">here</a>,
-                    and request an enrollment token.
+                    Enter your email through the verification flow
+                    <a href="/enroll?mode=token">here</a>,
+                    and request a setup token.
                 </li>
                 <li>
                     Read the `gaiangrid_telemetry` README and install the integration in Home Assistant.
@@ -53,6 +53,16 @@
                 <p class="callout-label">Home Assistant inputs</p>
                 <p>
                    You only enter the enrollment token, your supported sensors, and optionally the fallback intervals.
+                </p>
+            </div>
+
+            <div class="guide-callout">
+                <p class="callout-label">Why sharing helps</p>
+                <p>
+                    Shared telemetry creates useful sensor points for voltage, frequency, and power along low-voltage networks.
+                    That helps improve visibility, supports local coordination, and builds the public aggregated view without exposing
+                    household-level telemetry. For the fuller picture, read the
+                    <a href="/vision">Gaian vision and mission</a>.
                 </p>
             </div>
 

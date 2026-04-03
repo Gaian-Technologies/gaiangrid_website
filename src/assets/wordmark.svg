@@ -1,8 +1,0 @@
-<svg width="360" height="68" viewBox="0 0 360 68" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
-  <title id="title">Gaian Grid</title>
-  <rect x="1" y="1" width="50" height="50" rx="12" fill="#1A6A55"/>
-  <path d="M14 26.5C14 19.5964 19.5964 14 26.5 14H38V22H27.5C24.4624 22 22 24.4624 22 27.5V38H14V26.5Z" fill="#F4FBF7"/>
-  <path d="M38 30C38 36.9036 32.4036 42.5 25.5 42.5H14V34.5H24.5C27.5376 34.5 30 32.0376 30 29V18.5H38V30Z" fill="#BFE6D7"/>
-  <text x="68" y="30" fill="#122116" font-family="Space Grotesk, IBM Plex Sans, Segoe UI, sans-serif" font-size="27" font-weight="700" letter-spacing="0.02em">GAIAN</text>
-  <text x="68" y="57" fill="#1A6A55" font-family="Space Grotesk, IBM Plex Sans, Segoe UI, sans-serif" font-size="27" font-weight="700" letter-spacing="0.08em">GRID</text>
-</svg>

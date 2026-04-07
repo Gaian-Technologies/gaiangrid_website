@@ -133,7 +133,7 @@ export class Header extends LitElement {
     const layoutProgress = Math.max(0, Math.min(1, 0.2 - rect.top / rect.height));
     const visualProgress = Math.max(
       0,
-      Math.min(1, 0.4 + (-rect.top - rect.height * 0.8) / (rect.height * 0.2))
+      Math.min(1, 0.8 + (-rect.top - rect.height * 0.8) / (rect.height * 0.2))
     );
 
     this.style.setProperty(

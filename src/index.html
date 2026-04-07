@@ -1,74 +1,78 @@
 <!doctype html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>xLit</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
 
-  <body>
-    <header>
-      <x-header></x-header>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>xLit</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-    <section id="landing">
+<body>
+  <header>
+    <x-header></x-header>
+  </header>
+
+  <section id="landing">
+    <div class="content">
+      <span class="eyebrow">Nature Inspired Technology for People and the Planet</span>
+      <h1>Smarter local energy for lower electricity costs.</h1>
       <div>
-        <span class="eyebrow"
-          >Nature Inspired Technology for People and the Planet</span
-        >
-        <h1>Smarter local energy for lower electricity costs.</h1>
-        <div>
-          <button>register</button>
-          <button>vision</button>
-        </div>
+        <button>register</button>
+        <button>vision</button>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="about">
-      <div class="col-span-6">
-        <p>
-          Gaian Grid gives people and the planet a simple and secure way to
-          benefit from locally generated green electricity.
-        </p>
-        <ul>
-          <li>
-            <strong>Who is it for:</strong> Property owners, tenants, and
-            everyone else on planet Earth.
-          </li>
-          <li>
-            <strong>How it works:</strong> Uses the Open Source smart home
-            platform Home Assistant to share electricity telemetry for local
-            energy coordination.
-          </li>
-          <li>
-            <strong>Why it matters:</strong> Supports local energy trading and
-            flexible services, helping buildings with and without solar benefit
-            from cheaper local green electricity.
-          </li>
-          <li>
-            <strong>No setup barrier:</strong> You do not need Home Assistant or
-            solar to participate or benefit, although the more people who do
-            connect data, the better the system works.
-          </li>
-          <li>
-            <strong>Why register interest now:</strong> Registering interest is
-            free, simple, and helps gauge community interest and plan rollout
-            areas with electricity network operators and retailers.
-          </li>
-        </ul>
-      </div>
-      <div>
-        <x-ha-grid class="col-span-2"></x-ha-grid>
-      </div>
-    </section>
+  <section id="about">
+    <div class="top">
+      <span class="eyebrow">Why gaian grid</span>
+      <h1>Smarter local energy for lower electricity costs.</h1>
+    </div>
+    <div class="content">
+      <p>
+        Gaian Grid gives people and the planet a simple and secure way to
+        benefit from locally generated green electricity.
+      </p>
+      <ul>
+        <li>
+          <strong>Who is it for:</strong> Property owners, tenants, and
+          everyone else on planet Earth.
+        </li>
+        <li>
+          <strong>How it works:</strong> Uses the Open Source smart home
+          platform Home Assistant to share electricity telemetry for local
+          energy coordination.
+        </li>
+        <li>
+          <strong>Why it matters:</strong> Supports local energy trading and
+          flexible services, helping buildings with and without solar benefit
+          from cheaper local green electricity.
+        </li>
+        <li>
+          <strong>No setup barrier:</strong> You do not need Home Assistant or
+          solar to participate or benefit, although the more people who do
+          connect data, the better the system works.
+        </li>
+        <li>
+          <strong>Why register interest now:</strong> Registering interest is
+          free, simple, and helps gauge community interest and plan rollout
+          areas with electricity network operators and retailers.
+        </li>
+      </ul>
+    </div>
+    <div class="asside">
+      <x-ha-grid></x-ha-grid>
+    </div>
+  </section>
 
-    <footer>
-      <x-footer></x-footer>
-    </footer>
+  <footer>
+    <x-footer></x-footer>
+  </footer>
 
-    <script type="module" src="components/header.ts"></script>
-    <script type="module" src="components/ha-grid.ts"></script>
-    <script type="module" src="components/footer.ts"></script>
-  </body>
+  <script type="module" src="components/header.ts"></script>
+  <script type="module" src="components/ha-grid.ts"></script>
+  <script type="module" src="components/footer.ts"></script>
+</body>
+
 </html>

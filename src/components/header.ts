@@ -1,10 +1,13 @@
 import { css, html, LitElement } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 
 import './gaian-grid';
 
 @customElement('x-header')
 export class Header extends LitElement {
+  @property({ type: Boolean })
+  dynamic = false;
+
   static override styles = css`
     :host {
       --header-space: var(--space-lg);
@@ -64,8 +67,8 @@ export class Header extends LitElement {
       transition: margin-inline 160ms ease;
     }
 
-    .selected {
-      text-decoration: underline;
+    .selected::after {
+      width: 100%;
     }
 
     nav {
@@ -107,7 +110,7 @@ export class Header extends LitElement {
 
     @media (max-width: 720px) {
       :host {
-        --header-space: var(--space-md)
+        --header-space: var(--space-md);
       }
 
       .header {
@@ -140,7 +143,10 @@ export class Header extends LitElement {
     }
 
     const rect = this.landing.getBoundingClientRect();
-    const layoutProgress = Math.max(0, Math.min(1, 0.2 - rect.top / rect.height));
+    const layoutProgress = Math.max(
+      0,
+      Math.min(1, 0.2 - rect.top / rect.height)
+    );
     const visualProgress = Math.max(
       0,
       Math.min(1, 0.8 + (-rect.top - rect.height * 0.5) / (rect.height * 0.5))
@@ -158,9 +164,14 @@ export class Header extends LitElement {
 
   override connectedCallback() {
     super.connectedCallback();
-    this.landing = document.querySelector<HTMLElement>('#landing');
-    this.onScroll();
-    window.addEventListener('scroll', this.onScroll, { passive: true });
+    if (this.dynamic) {
+      this.landing = document.querySelector<HTMLElement>('#landing');
+      this.onScroll();
+      window.addEventListener('scroll', this.onScroll, { passive: true });
+    } else {
+      this.style.setProperty('--header-layout-progress', '100');
+      this.style.setProperty('--header-visual-progress', '100');
+    }
   }
 
   override disconnectedCallback() {

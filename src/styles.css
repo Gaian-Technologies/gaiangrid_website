@@ -47,7 +47,7 @@ section {
   column-gap: var(--space-sm);
   row-gap: var(--space-sm);
 
-  padding: var(--space-lg);
+  padding: var(--space-md) var(--space-lg);
 }
 
 /* --- landing --- */
@@ -59,7 +59,7 @@ section {
   color: var(--theme-text-light);
 }
 
-#landing>div.content {
+.landing-content {
   grid-column: span 8;
   display: flex;
   flex-direction: column;
@@ -97,6 +97,16 @@ section {
 }
 
 .inspiration-content {
+  grid-column: span 8;
+}
+
+/* vision */
+
+#vision {
+  padding-top: calc(var(--space-lg) * 2.5);
+}
+
+.vision-content {
   grid-column: span 8;
 }
 
@@ -150,6 +160,22 @@ button:focus-visible {
   border-radius: var(--radius);
 }
 
+.card-md {
+  grid-column: span 6;
+
+  padding: var(--space-sm);
+  border: 1px solid var(--theme-border);
+  border-radius: var(--radius);
+}
+
+.card-lg {
+  grid-column: span 12;
+
+  padding: var(--space-sm);
+  border: 1px solid var(--theme-border);
+  border-radius: var(--radius);
+}
+
 /* --- tablet --- */
 
 @media (max-width: 720px) {
@@ -184,6 +210,10 @@ button:focus-visible {
   }
 
   .card-sm {
+    grid-column: span 12;
+  }
+
+  .card-md {
     grid-column: span 12;
   }
 }

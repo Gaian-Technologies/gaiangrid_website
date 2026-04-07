@@ -7,13 +7,14 @@ import './gaian-grid';
 export class Header extends LitElement {
   static override styles = css`
     :host {
+      --header-space: var(--space-lg);
       --header-layout-progress: 0;
       --header-visual-progress: 0;
       --header-inline-space: calc(
-        var(--space-lg) * (1 - var(--header-layout-progress))
+        var(--header-space) * (1 - var(--header-layout-progress))
       );
       --header-content-offset: calc(
-        var(--space-lg) - var(--header-inline-space)
+        var(--header-space) - var(--header-inline-space)
       );
       --text-color: color-mix(
         in srgb,
@@ -33,7 +34,7 @@ export class Header extends LitElement {
       --header-border-color: color-mix(
         in srgb,
         rgb(242 244 242) calc((1 - var(--header-visual-progress)) * 100%),
-        var(--theme-text-light)
+        var(--theme-border)
       );
 
       position: fixed;
@@ -104,15 +105,24 @@ export class Header extends LitElement {
       transition: color 160ms ease;
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 720px) {
+      :host {
+        --header-space: var(--space-md)
+      }
+
       .header {
         margin-inline: 0;
       }
 
       .header-inner {
-        flex-direction: column;
         margin-inline: 0;
         padding: var(--space-md) var(--space-sm);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-inner {
+        flex-direction: column;
       }
 
       x-gaian-grid {
@@ -133,7 +143,7 @@ export class Header extends LitElement {
     const layoutProgress = Math.max(0, Math.min(1, 0.2 - rect.top / rect.height));
     const visualProgress = Math.max(
       0,
-      Math.min(1, 0.8 + (-rect.top - rect.height * 0.8) / (rect.height * 0.2))
+      Math.min(1, 0.8 + (-rect.top - rect.height * 0.5) / (rect.height * 0.5))
     );
 
     this.style.setProperty(
@@ -178,10 +188,6 @@ export class Header extends LitElement {
               href="/setup"
               class="${this.route === '/setup' ? 'selected' : ''}"
               >quick setup</a
-            >
-            <span>|</span>
-            <a href="https://github.com/Gaian-Technologies" target="_blank"
-              >github</a
             >
           </nav>
         </div>

@@ -8,6 +8,7 @@
   --theme-raised: #f3fff2;
   --theme-text-dark: #002600;
   --theme-text-light: #f2f4f2;
+  --theme-border: #dbdbdb;
   --theme-primary: #005900;
 
   --space-sm: 1rem;
@@ -37,8 +38,9 @@ body {
 section {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  column-gap: var(--space-md);
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: var(--space-sm);
+  row-gap: var(--space-sm);
 
   padding: var(--space-lg);
 }
@@ -53,7 +55,7 @@ section {
 }
 
 #landing>div.content {
-  grid-column: span 6;
+  grid-column: span 4;
   display: flex;
   flex-direction: column;
   justify-content: end;
@@ -78,26 +80,20 @@ section {
   color: #8cd78c;
 }
 
-/* --- about --- */
-
-#about>div.top {
-  grid-column: span 8;
-}
-
-#about>div.content {
-  grid-column: span 6;
-}
-
-#about>div.asside {
-  grid-column: span 2;
-  align-self: center;
-}
-
-footer {
-  height: 100vh;
+#landing .actions {
+  display: flex;
+  gap: var(--space-sm);
 }
 
 /* --- controls --- */
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
 
 button {
   cursor: pointer;
@@ -120,12 +116,40 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
+.span-6 {
+  grid-column: span 6;
+}
+
 .eyebrow {
   color: var(--theme-primary);
   text-transform: uppercase;
   font-weight: 700;
   font-size: 0.8rem;
   letter-spacing: 0.16rem;
+}
+
+.card-sm {
+  grid-column: span 2;
+
+  padding: var(--space-sm);
+  border: 1px solid var(--theme-border);
+  border-radius: var(--radius);
+}
+
+/* --- tablet --- */
+
+@media (max-width: 720px) {
+  section {
+    padding: var(--space-md);
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
 }
 
 /* --- mobile --- */
@@ -135,11 +159,7 @@ button:focus-visible {
     padding: var(--space-sm);
   }
 
-  #about>div.content {
-    grid-column: span 8;
-  }
-
-  #about>div.asside {
-    display: none;
+  .card-sm {
+    grid-column: span 6;
   }
 }

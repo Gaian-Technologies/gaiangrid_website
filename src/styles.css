@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url(assets/JetBrainsMono-Regular.woff2);
+}
+
 :root {
   /* color-scheme: light dark; */
 
@@ -29,7 +34,7 @@ body {
   padding: 0;
 
   font:
-    14px 'JetBrains Mono NL',
+    14px 'JetBrains Mono',
     ui-monospace,
     monospace;
   color: var(--theme-text-dark);
@@ -133,9 +138,8 @@ button:focus-visible {
 .eyebrow {
   color: var(--theme-primary);
   text-transform: uppercase;
-  font-weight: 700;
   font-size: 0.8rem;
-  letter-spacing: 0.16rem;
+  letter-spacing: 0.2rem;
 }
 
 .card-sm {

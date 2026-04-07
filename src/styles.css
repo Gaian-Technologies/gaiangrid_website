@@ -108,12 +108,10 @@ button {
   padding: var(--space-sm) var(--space-md);
   font: inherit;
   line-height: 1;
-  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 160ms ease, font-weight 160ms ease;
+  min-width: 10rem;
 }
 
 button:hover {
-  box-shadow: 8px 8px 14px 0px rgba(0, 0, 0, 0.3);
   font-weight: bold;
 }
 

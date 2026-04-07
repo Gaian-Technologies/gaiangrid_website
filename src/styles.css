@@ -1,0 +1,124 @@
+:root {
+  /* color-scheme: light dark; */
+
+  /* --theme-background: #0a120c;
+    --theme-raised: #122116;
+    --theme-text: #f2f4f2; */
+  --theme-background: #fff;
+  --theme-raised: #f3fff2;
+  --theme-text-dark: #002600;
+  --theme-text-light: #f2f4f2;
+  --theme-primary: #005900;
+
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+
+  --radius: 1rem;
+}
+
+html {
+  background-color: var(--theme-background);
+  height: 100%;
+}
+
+body {
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+
+  font:
+    14px 'JetBrains Mono NL',
+    ui-monospace,
+    monospace;
+  color: var(--theme-text-dark);
+}
+
+section {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+
+  padding: var(--space-lg);
+}
+
+/* --- landing --- */
+
+section#landing {
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  color: var(--theme-text-light);
+}
+
+section#landing > div {
+  grid-column: span 6;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+section#landing::before {
+  content: '';
+  position: absolute;
+  inset: -20vh -20vw;
+  z-index: -1;
+  background-image: url('assets/bush-sky.jpeg');
+  background-repeat: repeat-y;
+  background-position: center var(--bg-offset, 0px);
+  background-size: 100% auto;
+  filter: blur(1rem) brightness(0.4);
+  transform: scale(1.3);
+  will-change: background-position;
+  pointer-events: none;
+}
+
+.col-span-6 {
+  grid-column: span 6;
+}
+
+.col-span-2 {
+  grid-column: span 2;
+}
+
+.eyebrow {
+  color: #abcbab;
+  text-transform: uppercase;
+}
+
+footer {
+  height: 100vh;
+}
+
+.view-height {
+  height: 100vh;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  border-radius: var(--radius);
+  background-color: var(--theme-raised);
+  color: var(--theme-text-dark);
+  padding: var(--space-sm) var(--space-md);
+  font: inherit;
+  line-height: 1;
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 160ms ease, font-weight 160ms ease;
+}
+
+button:hover {
+  box-shadow: 8px 8px 14px 0px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--theme-text-dark);
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: var(--space-sm);
+  }
+}

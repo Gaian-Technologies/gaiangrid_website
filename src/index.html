@@ -1,289 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaian Grid</title>
-    <meta name="description" content="Nature-inspired technology for people and the planet. Gaian Grid helps communities benefit from local renewable electricity through open data and community reinvestment.">
-    <link rel="canonical" href="https://gaiangrid.com/">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Gaian Grid">
-    <meta property="og:description" content="Nature-inspired technology for people and the planet. Gaian Grid helps communities benefit from local renewable electricity through open data and community reinvestment.">
-    <meta property="og:url" content="https://gaiangrid.com/">
-    <meta property="og:site_name" content="Gaian Grid">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Gaian Grid">
-    <meta name="twitter:description" content="Nature-inspired technology for people and the planet. Gaian Grid helps communities benefit from local renewable electricity through open data and community reinvestment.">
-    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="main.css?v=20260401f">
-    <link rel="stylesheet" href="grid.css?v=20260330a">
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"8bb157c5837e407dbbdbf5048f4bd54e"}'></script>
-</head>
-<body>
-    <header class="site-header">
-        <div class="container topbar">
-            <a class="brand" href="/" aria-label="Gaian Grid home">
-                <img src="/assets/gaian_grid.svg?v=20260331a" alt="Gaian Grid">
-            </a>
-            <nav class="nav">
-                <a class="nav-link" href="/vision">Vision</a>
-                <a class="nav-link" href="/live">Live Data</a>
-                <a class="nav-link" href="https://github.com/Gaian-Technologies" target="_blank" rel="noreferrer">GitHub</a>
-                <a class="nav-link" href="/quicksetup">Quick Setup</a>
-                <a class="button-link" href="/enroll?mode=interest">Register interest</a>
-            </nav>
-        </div>
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>xLit</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <x-header></x-header>
     </header>
 
-    <main class="page-main">
-        <section class="section top-promo-section">
-            <div class="container">
-                <a class="vision-promo" href="/vision">
-                    <div class="vision-promo-copy">
-                        <p class="card-label">Why Gaian exists</p>
-                        <h2>Read the full Gaian vision, mission, privacy boundary, and community reinvestment model.</h2>
-                        <p>
-                            See how Gaian Grid works, why sensor points matter, and how local value is intended to flow back into the communities that create it.
-                        </p>
-                    </div>
-                    <span class="vision-promo-link">Read the vision</span>
-                </a>
-            </div>
-        </section>
-
-        <section class="hero">
-            <div class="container hero-grid">
-                <div class="hero-copy">
-                    <p class="eyebrow">Nature inspired Technology for people and the planet</p>
-                    <h1>Smarter local energy for lower electricity costs.</h1>
-                    <p class="lede">
-                        Gaian Grid gives people and the planet a simple and secure
-                        way to benefit from locally generated green electricity.
-                    </p>
-                    <ul class="hero-details" aria-label="Registration basics">
-                        <li><strong>Who it is for:</strong> Property owners, tenants, and everyone else on planet Earth.</li>
-                        <li><strong>How it works:</strong> Uses the Open Source smart home platform Home Assistant to share electricity telemetry for local energy coordination.</li>
-                        <li><strong>Why it matters:</strong> Supports local energy trading and flexible services, helping buildings with and without solar benefit from cheaper local green electricity.</li>
-                        <li><strong>No setup barrier:</strong> You do not need Home Assistant or solar to participate or benefit, although the more people who do connect data, the better the system works.</li>
-                        <li><strong>Why register interest now:</strong> Registering interest is free, simple, and helps gauge community interest and plan rollout areas with electricity network operators and retailers.</li>
-                    </ul>
-                    <div class="actions">
-                        <a class="button-link" href="/quicksetup">Read quick setup</a>
-                        <a class="text-link strong-link" href="/live">View live data.</a>
-                        <a class="text-link strong-link" href="/enroll?mode=interest">Register interest free.</a>
-                        <br>
-                        <a class="text-link strong-link" href="/enroll?mode=token">Home Assistant ready? Get setup token.</a>
-                    </div>
-    
-                </div>
-                <div class="hero-art" aria-hidden="true">
-                    <div id="grid-root" class="hero-grid-control"></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section section-story">
-            <div class="container content-stack">
-                <div class="section-heading">
-                    <p class="eyebrow">Why Gaian Grid</p>
-                    <h2>A live electricity insights and trading platform built for the future of distributed energy.</h2>
-                    <p class="section-lede">
-                        Gaian Grid is designed to turn aging distribution networks into
-                        intelligent, self-regulating energy ecosystems that work for
-                        households, property owners, tenants, and the grid.
-                    </p>
-                </div>
-
-                <div class="story-grid">
-                    <article class="story-card">
-                        <p class="card-label">Lower costs</p>
-                        <h3>Optimize electricity costs across the whole network.</h3>
-                        <p>
-                            The system is built around lower electricity costs for
-                            participants, while making it easier to unlock rewards
-                            from flexible demand and local coordination.
-                        </p>
-                    </article>
-                    <article class="story-card">
-                        <p class="card-label">Grid coordination</p>
-                        <h3>Coordinate distributed energy assets with cleaner, local signals.</h3>
-                        <p>
-                            Gaian Grid supports distributed flexibility, virtual power
-                            plant participation, and local electricity trading through
-                            a simple and secure open architecture.
-                        </p>
-                    </article>
-                    <article class="story-card">
-                        <p class="card-label">Network upgrade</p>
-                        <h3>Make old infrastructure behave like a responsive energy ecosystem.</h3>
-                        <p>
-                            Instead of treating each building as an isolated load,
-                            Gaian Grid helps networks operate as connected systems
-                            that are ready for distributed energy resources.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section section-nature">
-            <div class="container nature-grid">
-                <div class="nature-art">
-                    <img src="/assets/etree_icon.svg" alt="Enertree illustration inspired by nature-connected energy networks.">
-                </div>
-                <div class="nature-copy">
-                    <p class="eyebrow">Inspired by Nature</p>
-                    <h2>Every building becomes a technological tree in an interconnected local ecosystem.</h2>
-                    <p>
-                        In natural ecosystems, trees and other plants are linked through
-                        intelligent underground fungal networks that share information
-                        and resources for mutual benefit. 
-                    </p>
-                    <p>
-                        Gaian Grid applies that same systems thinking to electricity.
-                        Homes, apartments, and buildings become interconnected energy nodes
-                        that can share value, support the local network, and respond
-                        more intelligently to changing conditions.
-                    </p>
-                    <p>
-                        Like plants, buildings with solar act as primary producers, turning 
-                        the sun’s energy into a usable form that can support a broader ecosystem. 
-                        Stationary batteries act as herbivores, feeding directly on primary 
-                        producers when possible, while electric vehicles act as omnivores, 
-                        drawing energy from both the herbivore batteries and the primary producers. 
-                    </p>
-                    
-
-                </div>
-            </div>
-        </section>
-
-        <section class="section section-participants">
-            <div class="container content-stack">
-                <div class="section-heading narrow-heading">
-                    <p class="eyebrow">Who can participate</p>
-                    <h2>Built for property owners, tenants, and future solar adopters.</h2>
-                </div>
-
-                <div class="participant-grid">
-                    <article class="participant-card">
-                        <p class="card-label">Property owners with solar</p>
-                        <p>
-                            Sell cheap green electricity to tenants or the wider grid,
-                            earn a return on installed assets, and participate in local
-                            flexibility markets.
-                        </p>
-                    </article>
-                    <article class="participant-card">
-                        <p class="card-label">Homes without solar yet</p>
-                        <p>
-                            Still benefit from participation by receiving cheaper local
-                            solar during sunny periods and supporting more efficient
-                            low-voltage distribution networks.
-                        </p>
-                    </article>
-                    <article class="participant-card">
-                        <p class="card-label">Tenants and shared buildings</p>
-                        <p>
-                            Access lower-cost green electricity without needing to own
-                            the roof, while participating in a system that is designed
-                            to share value more fairly.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section section-platform">
-            <div class="container">
-                <div class="platform-band">
-                    <p class="eyebrow">Platform values</p>
-                    <br>
-                    <h2>Open Source</h2>
-                    <h2>Stakeholder Capitalism</h2>
-                    <h3>Everyone is a stakeholder, including you.</h3>
-                    
-                    <p>
-                        Gaian Grid is being designed as a transparent, simple, and secure
-                        platform for participation in local energy coordination and
-                        trading, with a model that treats users as stakeholders rather
-                        than passive endpoints.
-                    </p>
-                    <br>
-                    <div class="actions">
-                        <a class="text-link strong-link" href="/vision">Read the full Gaian vision and mission.</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section section-pathways">
-            <div class="container content-stack">
-                <div class="path-grid">
-                    <article class="path-card">
-                        <p class="card-label">No setup required</p>
-                        <h3>You can register interest now, even without Home Assistant.</h3>
-                        <p>
-                            Registering interest is free and only requires email verification.
-                            Home Assistant is only needed later if you want to connect
-                            live site data and contribute telemetry to the public view.
-                            Registering interest early helps show interest and plan with
-                            network operators and retailers.
-                        </p>
-                        <br>
-                        <a class="text-link strong-link" href="/enroll?mode=interest">Register interest free</a>
-                    </article>
-                    <article class="path-card">
-                        <p class="card-label">Ready to connect live data?</p>
-                        <h3>Read the setup guide, then request your setup token.</h3>
-                        <p>
-                            If you already have Home Assistant and sensors for any or all of power import,
-                            export, voltage, frequency, or reactive power, you can move straight into
-                            the quick setup flow. Even just a single voltage sensor helps
-                            and is often present on smart plugs and other common smart home devices. 
-                        </p>
-                        <br>
-                        <div class="actions">
-                            <a class="button-link" href="/quicksetup">Read quick setup</a>
-                            <a class="text-link strong-link" href="/enroll?mode=token">Get setup token</a>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="note-panel">
-                    <p class="card-label">Register interest free</p>
-                    <p>
-                        Registering interest is free and open to everyone. You only need to verify
-                        your email. Home Assistant, solar, batteries, and electricity
-                        sensors can all come later once you are ready to connect live data.
-                    </p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-            <div class="container footer-row">
-                <p>&copy; Gaian Technologies Limited. All rights reserved.</p>
-                <div class="footer-links">
-                    <a class="footer-link" href="/vision">Vision</a>
-                    <a class="footer-link" href="/live">Live data</a>
-                    <a class="footer-link" href="https://linkedin.com/company/gaian-technologies" target="_blank" rel="noreferrer">LinkedIn</a>
-                    <a class="footer-link" href="mailto:info@gaiangrid.com">info@gaiangrid.com</a>
-                    <a class="footer-link" href="/quicksetup">View Quick Setup</a>
-                </div>
+    <section id="landing">
+      <div>
+        <span class="eyebrow"
+          >Nature Inspired Technology for People and the Planet</span
+        >
+        <h1>Smarter local energy for lower electricity costs.</h1>
+        <div>
+          <button>register</button>
+          <button>vision</button>
         </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="col-span-6">
+        <p>
+          Gaian Grid gives people and the planet a simple and secure way to
+          benefit from locally generated green electricity.
+        </p>
+        <ul>
+          <li>
+            <strong>Who is it for:</strong> Property owners, tenants, and
+            everyone else on planet Earth.
+          </li>
+          <li>
+            <strong>How it works:</strong> Uses the Open Source smart home
+            platform Home Assistant to share electricity telemetry for local
+            energy coordination.
+          </li>
+          <li>
+            <strong>Why it matters:</strong> Supports local energy trading and
+            flexible services, helping buildings with and without solar benefit
+            from cheaper local green electricity.
+          </li>
+          <li>
+            <strong>No setup barrier:</strong> You do not need Home Assistant or
+            solar to participate or benefit, although the more people who do
+            connect data, the better the system works.
+          </li>
+          <li>
+            <strong>Why register interest now:</strong> Registering interest is
+            free, simple, and helps gauge community interest and plan rollout
+            areas with electricity network operators and retailers.
+          </li>
+        </ul>
+      </div>
+      <div>
+        <x-ha-grid class="col-span-2"></x-ha-grid>
+      </div>
+    </section>
+
+    <footer>
+      <x-footer></x-footer>
     </footer>
 
-    <script>
-        window.addEventListener("load", () => {
-            document.body.classList.add("loaded");
-        });
-    </script>
-    <script type="module">
-        import { mountGrid } from "./grid.mjs?v=20260330a";
-
-        mountGrid(document.getElementById("grid-root"));
-    </script>
-</body>
+    <script type="module" src="components/header.ts"></script>
+    <script type="module" src="components/ha-grid.ts"></script>
+    <script type="module" src="components/footer.ts"></script>
+  </body>
 </html>

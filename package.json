@@ -1,0 +1,26 @@
+{
+  "name": "gaiangrid.com",
+  "version": "0.0.0",
+  "description": "Gaian Grid branding website.",
+  "license": "Apache-2.0",
+  "private": "true",
+  "packageManager": "yarn@1.22.22",
+  "engines": {
+    "node": "25.x"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --check ."
+  },
+  "dependencies": {
+    "lit": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.2",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.12"
+  }
+}

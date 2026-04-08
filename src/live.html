@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Data - Gaian Grid</title>
+    <meta name="description"
+        content="Live public Gaian Grid analytics across connected countries, sites, and regional electricity metrics." />
+    <link rel="canonical" href="https://gaiangrid.com/live" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Gaian Grid Live Data" />
+    <meta property="og:description"
+        content="Live public Gaian Grid analytics across connected countries, sites, and regional electricity metrics." />
+    <meta property="og:url" content="https://gaiangrid.com/live" />
+    <meta property="og:site_name" content="Gaian Grid" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Gaian Grid Live Data" />
+    <meta name="twitter:description"
+        content="Live public Gaian Grid analytics across connected countries, sites, and regional electricity metrics." />
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token":"8bb157c5837e407dbbdbf5048f4bd54e"}'></script>
+</head>
+
+<body>
+    <header>
+        <x-header></x-header>
+    </header>
+
+    <section id="live">
+        <div class="span-12">
+            <span class="eyebrow">Open Data View</span>
+            <h1>Live community electricity signals.</h1>
+            <p>
+                This page shows the growth of the Gaian Grid community, including
+                registered participants, connected Home Assistant sites, and live
+                aggregated electricity data. Countries turn green as soon as people
+                register interest, while live power, voltage, and frequency summaries
+                appear once sites are connected, with individual household telemetry
+                kept out of public view.
+            </p>
+        </div>
+
+        <article class="card-xs live-kpi-card">
+            <p class="eyebrow">People Registered</p>
+            <h2 id="kpi-enrolled">-</h2>
+        </article>
+        <article class="card-xs live-kpi-card">
+            <p class="eyebrow">Connected Sites</p>
+            <h2 id="kpi-sites">-</h2>
+        </article>
+        <article class="card-xs live-kpi-card">
+            <p class="eyebrow">Countries</p>
+            <h2 id="kpi-countries">-</h2>
+        </article>
+        <article class="card-xs live-kpi-card">
+            <p class="eyebrow">Live Import</p>
+            <h2 id="kpi-import">-</h2>
+        </article>
+        <article class="card-xs live-kpi-card">
+            <p class="eyebrow">Live Export</p>
+            <h2 id="kpi-export">-</h2>
+        </article>
+        <article class="card-xs live-kpi-card">
+            <p class="eyebrow">Average Voltage</p>
+            <h2 id="kpi-voltage">-</h2>
+        </article>
+        <article class="card-xs live-kpi-card">
+            <p class="eyebrow">Average Frequency</p>
+            <h2 id="kpi-frequency">-</h2>
+        </article>
+    </section>
+
+    <section class="live-map-layout">
+        <article class="card-lg live-map-panel">
+            <span class="eyebrow">Earth View</span>
+            <h2>People and the Planet</h2>
+            <p>Click a country to inspect its live aggregated data.</p>
+            <svg id="live-map" class="live-map" viewBox="0 0 1000 540"
+                aria-label="World map of connected Gaian Grid countries"></svg>
+        </article>
+        <aside class="card-lg live-detail-panel" id="country-detail">
+            <span class="eyebrow">Country Detail</span>
+            <h2 id="detail-title">Loading live data...</h2>
+            <p id="detail-summary">
+                The country detail panel will update once the public analytics payload
+                loads.
+            </p>
+            <div class="live-detail-stats" id="detail-stats"></div>
+            <div class="live-region-block">
+                <h3>Region summaries</h3>
+                <p id="detail-region-note">
+                    Region resolution is based on available site metadata and supported
+                    identifier lookups.
+                </p>
+                <div class="live-region-list" id="region-list"></div>
+            </div>
+        </aside>
+    </section>
+
+    <section>
+        <div class="span-12">
+            <span class="eyebrow">Method</span>
+            <h2>What this page currently measures.</h2>
+        </div>
+        <article class="card-sm">
+            <span class="eyebrow">People registered and connected sites</span>
+            <p>
+                People registered counts verified participant emails from the
+                registration flow. Connected sites counts Home Assistant sites that
+                are actually connected and publishing telemetry.
+            </p>
+        </article>
+        <article class="card-sm">
+            <span class="eyebrow">Privacy-aware aggregation</span>
+            <p>
+                This page shows live, aggregated data rather than raw household
+                telemetry. It surfaces aggregate participation, power, voltage, and
+                frequency signals while keeping individual site streams and precise
+                household locations out of public view.
+            </p>
+        </article>
+        <article class="card-sm">
+            <span class="eyebrow">Region-aware where possible</span>
+            <p>
+                Country is always shown. Region summaries appear when site metadata
+                and supported identifier lookup can resolve a finer location.
+            </p>
+        </article>
+    </section>
+
+    <footer>
+        <x-footer></x-footer>
+    </footer>
+
+    <script type="module" src="components/header.ts"></script>
+    <script type="module" src="components/footer.ts"></script>
+    <script type="module" src="live.ts"></script>
+</body>
+
+</html>

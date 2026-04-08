@@ -88,6 +88,7 @@ section {
 #landing .actions {
   display: flex;
   gap: var(--space-sm);
+  flex-wrap: wrap;
 }
 
 /* inspiration */
@@ -120,25 +121,9 @@ h2 {
   font-size: 1.5rem;
 }
 
-button {
-  cursor: pointer;
-  border: 0;
-  border-radius: var(--radius);
-  background-color: var(--theme-raised);
-  color: var(--theme-text-dark);
-  padding: var(--space-sm) var(--space-md);
-  font: inherit;
-  line-height: 1;
-  min-width: 10rem;
-}
-
-button:hover {
-  font-weight: bold;
-}
-
-button:focus-visible {
-  outline: 2px solid var(--theme-text-dark);
-  outline-offset: 2px;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .span-12 {
@@ -174,6 +159,23 @@ button:focus-visible {
   padding: var(--space-sm);
   border: 1px solid var(--theme-border);
   border-radius: var(--radius);
+}
+
+.action-link {
+  display: inline-block;
+  box-sizing: border-box;
+  min-width: 10rem;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid currentColor;
+  border-radius: var(--radius);
+  color: inherit;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.action-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 /* --- tablet --- */

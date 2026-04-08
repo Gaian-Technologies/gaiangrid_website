@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quick Setup - Gaian Grid</title>
+    <meta name="description"
+        content="Install and configure the Gaian Grid Home Assistant integration when you are ready to connect live data." />
+    <link rel="canonical" href="https://gaiangrid.com/setup" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Gaian Grid Quick Setup" />
+    <meta property="og:description"
+        content="Install and configure the Gaian Grid Home Assistant integration when you are ready to connect live data." />
+    <meta property="og:url" content="https://gaiangrid.com/setup" />
+    <meta property="og:site_name" content="Gaian Grid" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Gaian Grid Quick Setup" />
+    <meta name="twitter:description"
+        content="Install and configure the Gaian Grid Home Assistant integration when you are ready to connect live data." />
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token":"8bb157c5837e407dbbdbf5048f4bd54e"}'></script>
+</head>
+
+<body>
+    <header>
+        <x-header></x-header>
+    </header>
+
+    <section id="setup">
+        <div class="span-12">
+            <span class="eyebrow">Quick Setup</span>
+            <h1>Connecting Home Assistant.</h1>
+            <p>
+                If you already have Home Assistant and want to connect data, the supported workflow is simple.
+            </p>
+        </div>
+
+        <article class="card-lg">
+            <span class="eyebrow">Setup Steps</span>
+            <ol>
+                <li>
+                    Enter your email through the verification flow, and request a setup token.
+                </li>
+                <li>
+                    Read the <code>gaiangrid_telemetry</code> README and install the integration in Home Assistant.
+                </li>
+                <li>
+                    In the Home Assistant integration, enter your issued enrollment token and select the supported
+                    electricity sensors you want to share.
+                </li>
+                <li>
+                    Start publishing telemetry so your site can contribute to the live, aggregated public view.
+                </li>
+            </ol>
+            <span class="eyebrow">Home Assistant Inputs</span>
+            <p>
+                You only enter the enrollment token, your supported sensors, and optionally the fallback intervals.
+            </p>
+        </article>
+
+        <article class="card-lg">
+            <span class="eyebrow">Why Sharing Helps</span>
+            <p>
+                Shared telemetry creates useful sensor points for voltage, frequency, and power along low-voltage
+                networks. That improves visibility, supports local coordination, and builds the live public aggregated
+                view without exposing household-level telemetry.
+            </p>
+        </article>
+
+        <article class="card-lg">
+            <span class="eyebrow">Resources</span>
+            <p>
+                For the fuller picture, read the Gaian vision and mission. For installation details, use the integration
+                repository.
+            </p>
+            <div class="actions">
+                <a class="action-link" href="/vision">Vision and Mission</a>
+                <a class="action-link" href="https://github.com/Gaian-Technologies/gaiangrid_telemetry" target="_blank">Integration
+                    README</a>
+            </div>
+            </p>
+        </article>
+    </section>
+
+    <footer>
+        <x-footer></x-footer>
+    </footer>
+
+    <script type="module" src="components/header.ts"></script>
+    <script type="module" src="components/footer.ts"></script>
+</body>
+
+</html>

@@ -85,7 +85,7 @@ section {
   color: #8cd78c;
 }
 
-#landing .actions {
+.actions {
   display: flex;
   gap: var(--space-sm);
   flex-wrap: wrap;

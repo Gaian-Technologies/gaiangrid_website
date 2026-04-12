@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaian Grid Privacy Policy</title>
+    <meta name="description"
+        content="Read the Gaian Grid Privacy Policy, including what data is collected, how it is used, shared, protected, and how to exercise your privacy rights.">
+    <link rel="canonical" href="https://gaiangrid.com/privacy">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Gaian Grid Privacy Policy">
+    <meta property="og:description"
+        content="Read the Gaian Grid Privacy Policy, including what data is collected, how it is used, shared, protected, and how to exercise your privacy rights.">
+    <meta property="og:url" content="https://gaiangrid.com/privacy">
+    <meta property="og:site_name" content="Gaian Grid">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Gaian Grid Privacy Policy">
+    <meta name="twitter:description"
+        content="Read the Gaian Grid Privacy Policy, including what data is collected, how it is used, shared, protected, and how to exercise your privacy rights.">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="main.css?v=20260401f">
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token":"8bb157c5837e407dbbdbf5048f4bd54e"}'></script>
+    <style>
+        .privacy-page {
+            flex: 1;
+            padding: 3.5rem 0 5rem;
+        }
+
+        .privacy-shell {
+            width: min(100%, 56rem);
+            margin: 0 auto;
+            padding: clamp(1.6rem, 3vw, 2.6rem);
+            border: 1px solid rgba(207, 217, 203, 0.92);
+            border-radius: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .privacy-shell h1 {
+            max-width: none;
+            margin-bottom: 0.9rem;
+            font-size: clamp(2.3rem, 5vw, 2.5rem);
+            line-height: 1;
+        }
+
+        .privacy-intro {
+            display: grid;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .privacy-content {
+            display: grid;
+            gap: 1rem;
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+
+        .privacy-content h2 {
+            margin-top: 1.35rem;
+            margin-bottom: 0.2rem;
+            font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+            line-height: 1.15;
+        }
+
+        .privacy-content p {
+            margin: 0;
+        }
+
+        .privacy-content hr {
+            border: 0;
+            border-top: 1px solid rgba(207, 217, 203, 0.92);
+            margin: 0.4rem 0;
+        }
+
+        .privacy-content a {
+            color: var(--accent);
+            text-decoration-thickness: 0.08em;
+            text-underline-offset: 0.18em;
+        }
+
+        .privacy-content code {
+            padding: 0.1rem 0.35rem;
+            border-radius: 0.45rem;
+            background: var(--accent-soft);
+            font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 720px) {
+            .privacy-page {
+                padding: 2rem 0 3.5rem;
+            }
+
+            .privacy-shell {
+                border-radius: 1.15rem;
+                padding: 1.3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container topbar">
+            <a class="brand" href="/" aria-label="Gaian Grid home">
+                <img src="/assets/gaian_grid.svg?v=20260331a" alt="Gaian Grid">
+            </a>
+            <nav class="nav">
+                <a class="nav-link" href="/vision">Vision</a>
+                <a class="nav-link" href="/live">Live Data</a>
+                <a class="nav-link" href="https://github.com/Gaian-Technologies" target="_blank"
+                    rel="noreferrer">GitHub</a>
+                <a class="nav-link" href="/quicksetup">Quick Setup</a>
+                <a class="button-link" href="/enroll?mode=interest">Register interest</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="privacy-page">
+        <div class="container">
+            <article class="privacy-shell">
+                <div class="privacy-intro">
+                    <h1>Gaian Grid Privacy Policy</h1>
+                </div>
+
+                <div class="privacy-content">
+                    <p><strong>Last Updated</strong>: April 12, 2026<br>
+                        <strong>Effective Date</strong>: April 12, 2026
+                    </p>
+                    <hr>
+                    <h2 id="introduction">Introduction</h2>
+                    <p>This Privacy Policy explains how Gaian Technologies Limited ("we", "us", or "our") collects,
+                        uses, stores, and protects your personal information when you use Gaian Grid ("Service").</p>
+                    <p>We are committed to transparency and giving you control over your data. This policy explains
+                        exactly what data we collect, why we collect it, and how you can manage or delete it.</p>
+                    <hr>
+                    <h2 id="what-we-collect">What We Collect</h2>
+                    <p>We collect information in two ways: information you provide directly, and information we collect
+                        automatically when you use the Service.</p>
+                    <p>When you enrol with Gaian Grid, we collect and store the information you submit through the
+                        enrollment flow. This includes your email address, optional name, request type, country if
+                        provided, and any other site metadata you choose to submit through the form. Depending on the
+                        country selected, this may include an optional electricity site reference such as an ICP, NMI,
+                        MPRN, MPAN, CPE, CUPS, POD, or EAN code.</p>
+                    <p>When you use the enrollment flow, we also store supporting operational data including your IP
+                        address, request timestamps, verification-code hash, request status, and any issued invite
+                        identifier. We use this data to deliver verification emails, prevent abuse, and operate the
+                        enrollment flow.</p>
+                    <p>When you connect household telemetry in the form of smart sensors, current transformers via the
+                        Home Assistant add-on (Gaian Grid Telemetry), we collect and store time-series sensor readings
+                        and related telemetry metadata such as selected entity identifiers, state values, and device
+                        attributes. Your readings are used to improve visibility across the grid for Distributed Service
+                        Operators (DSO).</p>
+                    <p>We also use Cloudflare services on parts of Gaian Grid, including Turnstile on the enrollment
+                        form and Cloudflare Web Analytics on public website pages. Through those services, technical
+                        information such as IP address, browser type and version, operating system, device type, and
+                        request timestamps may be processed.</p>
+                    <p>We do not track your web browsing outside of Gaian Grid. We do not knowingly collect personal
+                        information from children under 13.</p>
+                    <hr>
+                    <h2 id="how-we-use-your-information">How We Use Your Information</h2>
+                    <p>We use your information to provide the Service. This includes analysing time-series telemetry
+                        across your local low-voltage feeder, and providing insights to DSOs to improve their visibility
+                        across the grid.</p>
+                    <p>We use your information to improve the Service by analysing usage patterns in anonymised and
+                        aggregated form, fixing bugs and errors, developing new features, and optimising performance.
+                    </p>
+                    <p>We use your information for security and fraud prevention, including detecting and preventing
+                        unauthorised access, monitoring for abuse or malicious activity, investigating security
+                        incidents, and complying with legal obligations.</p>
+                    <p>We use your information to communicate with you by sending verification emails, service updates
+                        and notifications, responding to support requests, and notifying you of important changes.</p>
+                    <p>If you are in the European Union, we process your data based on several legal grounds. We process
+                        data based on our contract with you to provide the Service you signed up for. We process data
+                        based on our legitimate interest in improving the Service, preventing fraud, and ensuring
+                        security. We process data based on your consent for optional features, which you can withdraw at
+                        any time. We process data when we have a legal obligation to comply with laws and regulations.
+                    </p>
+                    <hr>
+                    <h2 id="how-we-share-your-information">How We Share Your Information</h2>
+                    <p>We want to be absolutely clear: we never sell, rent, or trade your personal information to third
+                        parties for marketing purposes.</p>
+                    <p>We share data with trusted service providers who help us operate the Service:</p>
+                    <p>Amazon Web Services (AWS) hosts our infrastructure and is used for application hosting, storage,
+                        and verification email delivery. Our primary deployment is configured for Australia,
+                        specifically the <code>ap-southeast-2</code> region.</p>
+                    <p>Cloudflare provides security, performance, and reliability services, including Turnstile on the
+                        enrollment form and Cloudflare Web Analytics on public website pages.</p>
+                    <p>These service providers process data on our behalf or under their own service terms in connection
+                        with the services they provide to us.</p>
+                    <p>We may disclose your information if required by law, including to comply with legal process such
+                        as subpoenas or court orders, to respond to government requests, to protect our rights or
+                        property, to investigate fraud or security issues, or to protect the safety of users or the
+                        public.</p>
+                    <p>If we are acquired by or merge with another company, your information may be transferred. We will
+                        notify you of any such transfer and you can delete your data before the transfer if you choose.
+                    </p>
+                    <p>We may share your information for other purposes only with your explicit consent.</p>
+                    <hr>
+                    <h2 id="data-security">Data Security</h2>
+                    <p>We protect your data with technical and organisational security measures appropriate to the
+                        nature of the data we process.</p>
+                    <p>Data transmitted between your browser and our public services is encrypted in transit using TLS
+                        version 1.2 or higher. Telemetry transport between Home Assistant and our MQTT broker is
+                        encrypted in transit using TLS.</p>
+                    <p>We restrict access to internal services and administrative interfaces using network boundaries,
+                        authentication controls, and service-specific credentials.</p>
+                    <p>Our development practices prioritise security through code reviews for changes, use of
+                        parameterised SQL queries where applicable, and avoiding hardcoded secrets in source code.</p>
+                    <p>We store application data primarily in Australia in Amazon Web Services'
+                        <code>ap-southeast-2</code> region. Some requests also pass through Cloudflare services, which
+                        may process technical request data through their network.</p>
+                    <p>We retain different categories of data for different periods depending on their purpose.
+                        Enrollment request records, site registration records, telemetry data, and operational logs may
+                        be retained for as long as needed to operate the Service, investigate abuse or security issues,
+                        comply with legal obligations, or maintain system integrity.</p>
+                    <p>If you ask us to delete your data, we will delete or de-identify the relevant data unless we need
+                        to keep it for legal, or security reasons. Backups and storage snapshots may retain data for a
+                        limited additional period until they expire or are overwritten in the normal backup cycle.</p>
+                    <p>If a data breach occurs, we will investigate it, take steps to contain and remediate it, and
+                        provide any notifications required by applicable law.</p>
+                    <hr>
+                    <h2 id="your-rights-and-choices">Your Rights and Choices</h2>
+                    <p>You can request access to your data or request deletion by emailing <a
+                            href="mailto:privacy@gaiantechnologies.com">privacy@gaiantechnologies.com</a>. We will
+                        respond within the time required by applicable law.</p>
+                    <p>If your information is inaccurate, you can correct it by emailing <a
+                            href="mailto:privacy@gaiantechnologies.com">privacy@gaiantechnologies.com</a> for
+                        assistance.</p>
+                    <p>If you are in the European Union or United Kingdom, you have additional rights under GDPR and UK
+                        GDPR. You have the right to access your data and request a copy. You have the right to
+                        rectification to correct inaccurate data. You have the right to erasure, also known as the right
+                        to be forgotten. You have the right to restrict processing and limit how we process your data.
+                        You have the right to data portability to export your data. You have the right to object to
+                        processing based on legitimate interests. Where we rely on consent, you have the right to
+                        withdraw that consent.</p>
+                    <p>To exercise these rights, email <a
+                            href="mailto:privacy@gaiantechnologies.com">privacy@gaiantechnologies.com</a>. We will
+                        respond within 30 days, though we may extend this to 90 days for complex requests. You can file
+                        a complaint with your local data protection authority if you believe we have violated your
+                        rights. Find your authority at <a
+                            href="https://edpb.europa.eu/about-edpb/board/members_en">https://edpb.europa.eu/about-edpb/board/members_en</a>.
+                    </p>
+                    <p>If you are a California resident, you have additional rights under the California Consumer
+                        Privacy Act. You have the right to know what personal information we collect, use, and share.
+                        You have the right to delete your personal information. You have the right to opt out of any
+                        sale of personal information, though we do not sell data. You have the right to
+                        non-discrimination, meaning we will not discriminate against you for exercising your rights.</p>
+                    <p>To exercise these rights, email <a
+                            href="mailto:privacy@gaiantechnologies.com">privacy@gaiantechnologies.com</a>. You may
+                        designate an authorised agent to make requests on your behalf. We may ask for verification to
+                        prevent fraud.</p>
+                    <hr>
+                    <h2 id="childrens-privacy">Children's Privacy</h2>
+                    <p>Gaian Grid is not intended for children under 13 years old. We do not knowingly collect personal
+                        information from children under 13. If you are under 13, do not use the Service or provide any
+                        personal information. If you are a parent and believe your child has provided us with personal
+                        information, contact us immediately at <a
+                            href="mailto:privacy@gaiantechnologies.com">privacy@gaiantechnologies.com</a> and we will
+                        delete it.</p>
+                    <p>If you are between 13 and 18 years old, you must have permission from a parent or legal guardian
+                        to use the Service.</p>
+                    <p>We comply with the Children's Online Privacy Protection Act (COPPA). If we discover we have
+                        collected information from a child under 13, we will delete it immediately.</p>
+                    <hr>
+                    <h2 id="international-data-transfers">International Data Transfers</h2>
+                    <p>If you are outside Australia, your data will be transferred to and stored in Australia where our
+                        servers are located.</p>
+                    <p>Our service providers, including AWS and Cloudflare, may process data in other countries as part
+                        of providing infrastructure, email delivery, security, analytics, or network services.</p>
+                    <p>If you are in the European Union or United Kingdom, you retain the privacy rights available to
+                        you under applicable law.</p>
+                    <hr>
+                    <h2 id="cookies-and-tracking">Cookies and Tracking</h2>
+                    <p>We use Cloudflare Web Analytics on public website pages and Cloudflare Turnstile on the
+                        enrollment form. These services may use cookies or similar technologies, or may collect
+                        technical request data, to provide analytics, abuse prevention, and security functions.</p>
+                    <p>We do not use third-party advertising cookies.</p>
+                    <p>We currently do not respond to Do Not Track signals, but we do not track you across other
+                        websites.</p>
+                    <p>You can disable cookies in your browser settings, though this may break essential functionality
+                        of the Service.</p>
+                    <hr>
+                    <h2 id="changes-to-this-policy">Changes to This Policy</h2>
+                    <p>We may update this Privacy Policy from time to time. When we do, we will update the "Last
+                        Updated" date at the top of this document. For material changes, we will provide notice by email
+                        before those changes take effect.</p>
+                    <p>We encourage you to review this Privacy Policy periodically. By continuing to use the Service
+                        after changes take effect, you accept the updated Privacy Policy.</p>
+                    <hr>
+                    <h2 id="contact-us">Contact Us</h2>
+                    <p>For questions about this Privacy Policy or our privacy practices, email <a
+                            href="mailto:privacy@gaiantechnologies.com">privacy@gaiantechnologies.com</a>.</p>
+                    <p>If required by GDPR, we will appoint a Data Protection Officer who can be reached at <a
+                            href="mailto:privacy@gaiantechnologies.com">privacy@gaiantechnologies.com</a>.</p>
+                    <p>European Union users can file a complaint with their local data protection authority. Find your
+                        authority at <a
+                            href="https://edpb.europa.eu/about-edpb/board/members_en">https://edpb.europa.eu/about-edpb/board/members_en</a>.
+                    </p>
+                    <p>United Kingdom users can contact the Information Commissioner's Office at <a
+                            href="https://ico.org.uk/">https://ico.org.uk/</a>.</p>
+                    <p>California users can email <a
+                            href="mailto:privacy@gaiantechnologies.com">privacy@gaiantechnologies.com</a>.</p>
+                    <hr>
+                    <p><strong>By using Gaian Grid, you acknowledge that you have read, understood, and agree to this
+                            Privacy Policy.</strong></p>
+                    <hr>
+                    <p><em>Last updated: April 12, 2026</em></p>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-row">
+            <p>&copy; Gaian Technologies Limited. All rights reserved.</p>
+            <div class="footer-links">
+                <a class="footer-link" href="/vision">Vision</a>
+                <a class="footer-link" href="/live">Live data</a>
+                <a class="footer-link" href="https://linkedin.com/company/gaian-technologies" target="_blank"
+                    rel="noreferrer">LinkedIn</a>
+                <a class="footer-link" href="mailto:info@gaiangrid.com">info@gaiangrid.com</a>
+                <a class="footer-link" href="/quicksetup">View Quick Setup</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener("load", () => {
+            document.body.classList.add("loaded");
+        });
+    </script>
+</body>
+
+</html>

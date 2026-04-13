@@ -77,7 +77,7 @@
     
                 </div>
                 <div class="hero-art" aria-hidden="true">
-                    <div id="grid-root" class="hero-grid-control"></div>
+                    <ha-grid />
                 </div>
             </div>
         </section>
@@ -280,10 +280,6 @@
             document.body.classList.add("loaded");
         });
     </script>
-    <script type="module">
-        import { mountGrid } from "./grid.mjs?v=20260330a";
-
-        mountGrid(document.getElementById("grid-root"));
-    </script>
+    <script src="components/ha-grid.js" type="module"></script>
 </body>
 </html>

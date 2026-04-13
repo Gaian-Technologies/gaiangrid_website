@@ -9,7 +9,7 @@ This directory owns the internal authoring inputs for the animated grid diagram.
 Build the scene artifact with:
 
 ```bash
-node tools/grid_build.mjs
+node tools/build-grid.mjs
 ```
 
 That reads [grid.txt](./grid.txt) and writes:
